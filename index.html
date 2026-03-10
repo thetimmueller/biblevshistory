@@ -173,13 +173,18 @@
   .believe-form{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:24px}
   .believe-form input{padding:10px 16px;border:1px solid var(--border);border-radius:8px;font-size:.88rem;font-family:'Inter',sans-serif;width:220px;outline:none;transition:border-color .2s}
   .believe-form input:focus{border-color:var(--align)}
+  .believe-toggle{display:flex;gap:0;justify-content:center;margin-bottom:18px;border-radius:8px;overflow:hidden;border:1px solid var(--border);width:fit-content;margin-left:auto;margin-right:auto}
+  .believe-toggle-btn{padding:9px 20px;font-size:.82rem;font-family:'Inter',sans-serif;font-weight:500;border:none;background:#FDFCFA;color:var(--text-muted);cursor:pointer;transition:all .2s}
+  .believe-toggle-btn.active{background:linear-gradient(135deg,#3B5E3A,#2C4A5C);color:#FAF8F5;font-weight:600}
   .believe-btn{padding:10px 24px;background:linear-gradient(135deg,#3B5E3A,#2C4A5C);color:#FAF8F5;border:none;border-radius:8px;font-size:.88rem;font-family:'Inter',sans-serif;font-weight:600;cursor:pointer;transition:opacity .2s}
   .believe-btn:hover{opacity:.9}
   .believe-btn:disabled{opacity:.5;cursor:not-allowed}
   .believe-msg{font-size:.82rem;color:var(--align);font-weight:500;margin-bottom:16px;display:none}
   .believe-wall{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:16px;border-top:1px solid var(--border)}
   .believe-wall:empty{border-top:none;padding-top:0}
-  .believe-name{background:var(--align-light);color:var(--text);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:500;border:1px solid #d4e8c4}
+  .believe-name{background:var(--align-light);color:var(--text);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:500;border:1px solid #d4e8c4;display:inline-flex;align-items:center;gap:5px}
+  .believe-name .believe-loc{color:var(--text-muted);font-weight:400;font-size:.72rem}
+  .believe-name .believe-type{font-size:.7rem}
   .believe-count{font-size:.78rem;color:var(--text-muted);margin-bottom:12px}
 
   footer{text-align:center;padding:28px 24px;font-size:.76rem;color:var(--text-muted);border-top:1px solid var(--border);max-width:780px;margin:0 auto;line-height:1.6}
@@ -214,6 +219,7 @@
     .believe-section{padding:20px 18px}
     .believe-form input{width:100%}
     .believe-form{flex-direction:column}
+    .believe-toggle-btn{padding:8px 14px;font-size:.76rem}
   }
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -531,8 +537,13 @@
   <div class="believe-section">
     <h3>I Believe</h3>
     <p class="believe-subtitle">If you've made the decision to trust in Jesus, we'd love to know. Add your name to the wall.</p>
+    <div class="believe-toggle">
+      <button class="believe-toggle-btn active" id="toggle-now" onclick="setBelieveType('now')">I believe now!</button>
+      <button class="believe-toggle-btn" id="toggle-already" onclick="setBelieveType('already')">I already believed</button>
+    </div>
     <div class="believe-form">
       <input type="text" id="believe-name" placeholder="Your first name" maxlength="40" autocomplete="off">
+      <input type="text" id="believe-location" placeholder="Location (e.g. Texas, UK)" maxlength="60" autocomplete="off">
       <button class="believe-btn" id="believe-btn" onclick="submitBelief()">I Believe</button>
     </div>
     <div class="believe-msg" id="believe-msg"></div>
@@ -779,6 +790,14 @@ if (firebaseReady) {
   }
 }
 
+let believeType = 'now';
+
+function setBelieveType(type) {
+  believeType = type;
+  document.getElementById('toggle-now').classList.toggle('active', type === 'now');
+  document.getElementById('toggle-already').classList.toggle('active', type === 'already');
+}
+
 function loadBeliefs() {
   if (!db) return;
   db.ref('beliefs').orderByChild('timestamp').on('value', snap => {
@@ -786,15 +805,20 @@ function loadBeliefs() {
     const countEl = document.getElementById('believe-count');
     wall.innerHTML = '';
     let count = 0;
-    const names = [];
+    const entries = [];
     snap.forEach(child => {
-      names.push(child.val().name);
+      entries.push(child.val());
       count++;
     });
-    names.forEach(name => {
+    entries.forEach(entry => {
       const tag = document.createElement('span');
       tag.className = 'believe-name';
-      tag.textContent = name;
+      const icon = entry.type === 'now' ? '\u2728 ' : '\u2705 ';
+      let html = icon + entry.name;
+      if (entry.location) {
+        html += ' <span class="believe-loc">— ' + entry.location + '</span>';
+      }
+      tag.innerHTML = html;
       wall.appendChild(tag);
     });
     if (count > 0) {
@@ -804,38 +828,49 @@ function loadBeliefs() {
 }
 
 function submitBelief() {
-  const input = document.getElementById('believe-name');
+  const nameInput = document.getElementById('believe-name');
+  const locInput = document.getElementById('believe-location');
   const btn = document.getElementById('believe-btn');
   const msg = document.getElementById('believe-msg');
-  const name = input.value.trim();
+  const name = nameInput.value.trim();
+  const location = locInput.value.trim();
 
-  if (!name) { input.focus(); return; }
+  if (!name) { nameInput.focus(); return; }
   if (name.length > 40) return;
 
-  // Sanitize — only allow letters, spaces, hyphens, apostrophes
-  const clean = name.replace(/[^a-zA-Z\s\-'À-ÿ]/g, '').trim();
-  if (!clean) { input.focus(); return; }
+  // Sanitize name — only allow letters, spaces, hyphens, apostrophes
+  const cleanName = name.replace(/[^a-zA-Z\s\-'À-ÿ]/g, '').trim();
+  if (!cleanName) { nameInput.focus(); return; }
+
+  // Sanitize location — allow letters, spaces, commas, periods, hyphens
+  const cleanLoc = location.replace(/[^a-zA-Z\s,.\-'À-ÿ]/g, '').trim().substring(0, 60);
 
   btn.disabled = true;
 
   if (!db) {
-    // No Firebase — show message anyway
     msg.style.display = 'block';
-    msg.textContent = 'Welcome to the family, ' + clean + '! (Connect Firebase to save your name for others to see)';
-    input.value = '';
+    msg.textContent = 'Welcome to the family, ' + cleanName + '! (Connect Firebase to save your name for others to see)';
+    nameInput.value = '';
+    locInput.value = '';
     btn.disabled = false;
     return;
   }
 
-  db.ref('beliefs').push({
-    name: clean,
+  const entry = {
+    name: cleanName,
+    type: believeType,
     timestamp: firebase.database.ServerValue.TIMESTAMP
-  }).then(() => {
+  };
+  if (cleanLoc) entry.location = cleanLoc;
+
+  db.ref('beliefs').push(entry).then(() => {
     msg.style.display = 'block';
-    msg.textContent = 'Welcome to the family, ' + clean + '!';
-    input.value = '';
+    msg.textContent = believeType === 'now'
+      ? 'Welcome to the family, ' + cleanName + '! \uD83C\uDF89'
+      : 'Amen, ' + cleanName + '! So glad you\'re part of the family.';
+    nameInput.value = '';
+    locInput.value = '';
     btn.disabled = false;
-    // Store in localStorage so they can't spam
     localStorage.setItem('believed', 'true');
   }).catch(() => {
     msg.style.display = 'block';
@@ -844,8 +879,11 @@ function submitBelief() {
   });
 }
 
-// Allow Enter key to submit
+// Allow Enter key to submit from either input
 document.getElementById('believe-name').addEventListener('keydown', e => {
+  if (e.key === 'Enter') submitBelief();
+});
+document.getElementById('believe-location').addEventListener('keydown', e => {
   if (e.key === 'Enter') submitBelief();
 });
 
