@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biblical &amp; Historical Timeline — Archaeology, Documents &amp; Evidence</title>
+
+<!-- SEO -->
+<meta name="description" content="An interactive timeline comparing 52 biblical claims with archaeological and historical evidence. Featuring the Dead Sea Scrolls, flood legends, evidence for Jesus' crucifixion and resurrection, and 31 independently corroborated events.">
+<meta name="keywords" content="Bible, archaeology, biblical history, Dead Sea Scrolls, historical Jesus, crucifixion evidence, resurrection evidence, biblical timeline, Gilgamesh, flood, Tower of Babel, Pilate Stone, Caiaphas, Tel Dan Stele">
+<meta name="author" content="Tim Mueller">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://biblevshistory.com">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Biblical &amp; Historical Timeline">
+<meta property="og:description" content="52 biblical claims tracked. 31 independently corroborated by archaeology and historical documents. 0 disproven. An interactive visual timeline from the Flood to the Early Church.">
+<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' fill='%23FAF8F5'%3E%3Crect width='1200' height='630' fill='%233B2F26'/%3E%3Ctext x='600' y='260' text-anchor='middle' font-family='Georgia,serif' font-size='64' fill='%23FAF8F5'%3EBiblical %26 Historical Timeline%3C/text%3E%3Ctext x='600' y='340' text-anchor='middle' font-family='Arial,sans-serif' font-size='28' fill='%23D4B896'%3E52 biblical claims %E2%80%A2 31 corroborated %E2%80%A2 0 disproven%3C/text%3E%3Ctext x='600' y='420' text-anchor='middle' font-family='Arial,sans-serif' font-size='22' fill='%23999'%3EArchaeology %E2%80%A2 Dead Sea Scrolls %E2%80%A2 Ancient Documents%3C/text%3E%3C/svg%3E">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Biblical &amp; Historical Timeline">
+<meta name="twitter:description" content="52 biblical claims tracked. 31 independently corroborated. 0 disproven. Interactive timeline from the Flood to the Early Church.">
+
+<!-- Favicon (embedded SVG scroll icon) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%238B5E3C'/%3E%3Cstop offset='100%25' stop-color='%235B7A3A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='%23FAF8F5'/%3E%3Ctext x='32' y='46' text-anchor='middle' font-size='38'%3E%F0%9F%93%9C%3C/text%3E%3C/svg%3E">
+
+<!-- Theme color for mobile browsers -->
+<meta name="theme-color" content="#3B2F26">
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --biblical:#8B5E3C;--biblical-light:#F5EDE4;
+    --historical:#2C5F7C;--historical-light:#E4EFF5;
+    --align:#5B7A3A;--align-light:#EDF5E4;
+    --document:#8A5BA0;--document-light:#F0E8F5;
+    --bg:#FAF8F5;--text:#2D2A26;--text-muted:#6B6560;--border:#E0DAD2;
+  }
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+
+  /* HERO */
+  .hero{background:linear-gradient(135deg,#2a1f16 0%,#4a3728 40%,#2C4A5C 100%);color:#FAF8F5;padding:56px 24px 44px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+  .hero h1{font-family:'EB Garamond',serif;font-size:2.8rem;font-weight:700;letter-spacing:.02em;margin-bottom:10px;position:relative}
+  .hero p{font-size:1rem;opacity:.85;max-width:720px;margin:0 auto;font-weight:300;position:relative}
+  .hero-icon{font-size:3.5rem;margin-bottom:12px;display:block;position:relative}
+
+  /* STICKY BAR */
+  .sticky-bar{position:sticky;top:0;z-index:100;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.06);border-bottom:1px solid var(--border)}
+  .legend-bar{display:flex;justify-content:center;gap:22px;padding:12px 24px;flex-wrap:wrap}
+  .legend-item{display:flex;align-items:center;gap:6px;font-size:.76rem;font-weight:500}
+  .legend-dot{width:10px;height:10px;border-radius:50%}
+  .filter-bar{display:flex;justify-content:center;gap:8px;padding:8px 24px 12px;flex-wrap:wrap}
+  .filter-btn{padding:5px 14px;border:1px solid var(--border);border-radius:20px;background:#fff;font-size:.76rem;font-family:'Inter',sans-serif;cursor:pointer;transition:all .2s;font-weight:500}
+  .filter-btn:hover{background:#f0ebe4}
+  .filter-btn.active{background:var(--text);color:#fff;border-color:var(--text)}
+
+  /* MAIN */
+  .main{max-width:1100px;margin:0 auto;padding:36px 24px 80px}
+  .intro-note{max-width:780px;margin:0 auto 36px;padding:18px 22px;background:#fff;border:1px solid var(--border);border-radius:10px;font-size:.84rem;color:var(--text-muted);line-height:1.7}
+  .intro-note strong{color:var(--text)}
+
+  /* STATS */
+  .stats-panel{max-width:780px;margin:0 auto 36px;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .stats-headline{text-align:center;padding:24px 24px 8px}
+  .stats-headline .big-pct{font-family:'EB Garamond',serif;font-size:3.2rem;font-weight:700;color:var(--text);line-height:1}
+  .stats-headline .big-label{font-size:.92rem;color:var(--text);font-weight:500;margin-top:4px}
+  .stats-headline .big-sub{font-size:.8rem;color:var(--text-muted);margin-top:2px}
+  .corr-bar-wrap{padding:8px 32px 20px;text-align:center}
+  .corr-bar{height:28px;background:#eee;border-radius:14px;overflow:hidden;position:relative;max-width:500px;margin:0 auto}
+  .corr-bar-fill{height:100%;border-radius:14px;display:flex;align-items:center;transition:width .8s ease}
+  .corr-bar .bar-green{background:linear-gradient(90deg,#5B7A3A,#7da64e);position:absolute;left:0;top:0;bottom:0;border-radius:14px 0 0 14px}
+  .corr-bar .bar-brown{background:linear-gradient(90deg,#c9a87c,#D4B896);position:absolute;top:0;bottom:0;border-radius:0 14px 14px 0}
+  .corr-bar-labels{display:flex;justify-content:space-between;max-width:500px;margin:6px auto 0;font-size:.7rem;color:var(--text-muted)}
+  .stats-row{display:flex;justify-content:center;gap:20px;padding:12px 24px 18px;border-top:1px solid var(--border);flex-wrap:wrap}
+  .stat{text-align:center;min-width:80px}
+  .stat-num{font-family:'EB Garamond',serif;font-size:1.5rem;font-weight:700}
+  .stat-label{font-size:.68rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em}
+  .stat-zero{color:#999;font-size:.78rem;font-weight:600;display:flex;align-items:center;gap:4px;justify-content:center;padding:4px 0}
+
+  /* ERA */
+  .era-section{margin-bottom:52px}
+  .era-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--border);flex-wrap:wrap}
+  .era-icon{font-size:1.6rem}
+  .era-badge{padding:3px 12px;border-radius:4px;color:#fff;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+  .era-header h2{font-family:'EB Garamond',serif;font-size:1.5rem;font-weight:600}
+  .era-header .era-dates{font-size:.82rem;color:var(--text-muted);margin-left:auto;font-weight:400}
+
+  /* EVENT ROW */
+  .event-row{display:grid;grid-template-columns:115px 1fr 44px 1fr;gap:0;align-items:start;margin-bottom:3px;transition:opacity .3s}
+  .event-row.hidden{display:none}
+  .event-date{font-size:.8rem;font-weight:600;color:var(--text-muted);padding:11px 10px 11px 0;text-align:right;font-variant-numeric:tabular-nums}
+  .event-card{padding:11px 14px;border-radius:8px;margin:3px 0;cursor:pointer;transition:all .2s;border-left:3px solid transparent;position:relative}
+  .event-card:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.08)}
+  .event-card.biblical{background:var(--biblical-light);border-left-color:var(--biblical)}
+  .event-card.historical{background:var(--historical-light);border-left-color:var(--historical)}
+  .event-card.alignment{background:var(--align-light);border-left-color:var(--align)}
+  .event-card.document{background:var(--document-light);border-left-color:var(--document)}
+  .center-line{display:flex;justify-content:center;align-items:stretch;position:relative}
+  .center-line::after{content:'';width:2px;background:var(--border);position:absolute;top:0;bottom:0}
+  .center-dot{width:10px;height:10px;border-radius:50%;position:relative;z-index:2;margin-top:15px;border:2px solid #fff;box-shadow:0 0 0 1px var(--border)}
+  .center-dot.biblical{background:var(--biblical)}.center-dot.historical{background:var(--historical)}.center-dot.alignment{background:var(--align)}.center-dot.document{background:var(--document)}
+  .ev-icon{float:left;font-size:1.3rem;margin-right:8px;margin-top:-1px}
+  .event-title{font-weight:600;font-size:.87rem;margin-bottom:2px}
+  .event-type-tag{font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px}
+  .event-card.biblical .event-type-tag{color:var(--biblical)}
+  .event-card.historical .event-type-tag{color:var(--historical)}
+  .event-card.alignment .event-type-tag{color:var(--align)}
+  .event-card.document .event-type-tag{color:var(--document)}
+  .event-desc{font-size:.8rem;color:var(--text-muted);line-height:1.5;display:none}
+  .event-card.expanded .event-desc{display:block;margin-top:5px}
+  .event-card .source-note{font-size:.7rem;font-style:italic;color:#999;margin-top:5px;display:none}
+  .event-card.expanded .source-note{display:block}
+
+  /* ARTIFACT GALLERY */
+  .artifact-gallery{max-width:900px;margin:48px auto;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .gallery-header{background:linear-gradient(135deg,#3B2F26,#5C4A3A);color:#FAF8F5;padding:22px 26px}
+  .gallery-header h2{font-family:'EB Garamond',serif;font-size:1.4rem;margin-bottom:3px}
+  .gallery-header p{font-size:.82rem;opacity:.8}
+  .gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:0}
+  .artifact-card{padding:18px 20px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);cursor:pointer;transition:background .2s}
+  .artifact-card:hover{background:#faf6f1}
+  .artifact-icon{font-size:2rem;margin-bottom:6px}
+  .artifact-card h4{font-size:.88rem;font-weight:600;margin-bottom:3px}
+  .artifact-card .artifact-date{font-size:.72rem;color:var(--text-muted);font-weight:500;margin-bottom:4px}
+  .artifact-card .artifact-loc{font-size:.72rem;color:var(--historical);font-weight:500}
+  .artifact-card p{font-size:.78rem;color:var(--text-muted);line-height:1.45;display:none;margin-top:6px}
+  .artifact-card.expanded p{display:block}
+
+  /* DEEP DIVE */
+  .deep-dive{max-width:900px;margin:48px auto;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .deep-dive-header{background:linear-gradient(135deg,#3B2F26,#5C4A3A);color:#FAF8F5;padding:22px 26px}
+  .deep-dive-header h2{font-family:'EB Garamond',serif;font-size:1.4rem;margin-bottom:3px}
+  .deep-dive-header p{font-size:.82rem;opacity:.8}
+  .evidence-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .evidence-col{padding:20px}
+  .evidence-col:first-child{border-right:1px solid var(--border)}
+  .evidence-col h3{font-family:'EB Garamond',serif;font-size:1.1rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .evidence-item{padding:9px 12px;border-radius:6px;margin-bottom:6px;cursor:pointer;transition:all .2s;border-left:3px solid var(--border);background:#FDFCFA}
+  .evidence-item:hover{background:#f5f0ea}
+  .evidence-item .ev-title{font-weight:600;font-size:.83rem}
+  .evidence-item .ev-date{font-size:.7rem;color:var(--text-muted);font-weight:500}
+  .evidence-item .ev-detail{font-size:.78rem;color:var(--text-muted);line-height:1.5;margin-top:5px;display:none}
+  .evidence-item.expanded .ev-detail{display:block}
+  .ev-verdict{display:none;font-size:.66rem;font-weight:600;padding:2px 8px;border-radius:10px;margin-top:5px}
+  .evidence-item.expanded .ev-verdict{display:inline-block}
+  .verdict-strong{background:#d4edda;color:#155724}
+  .verdict-moderate{background:#fff3cd;color:#856404}
+  .verdict-debated{background:#f8d7da;color:#721c24}
+  .summary-box{padding:18px 26px;background:#f9f7f4;border-top:1px solid var(--border);font-size:.82rem;color:var(--text-muted);line-height:1.6}
+  .summary-box strong{color:var(--text)}
+
+  footer{text-align:center;padding:28px 24px;font-size:.76rem;color:var(--text-muted);border-top:1px solid var(--border);max-width:780px;margin:0 auto;line-height:1.6}
+
+  .mobile-only{display:none}
+
+  @media(max-width:768px){
+    .desktop-only{display:none}
+    .mobile-only{display:inline}
+    .event-row{display:flex;flex-direction:column;gap:0}
+    .event-row .placeholder{display:none}
+    .event-date{text-align:left;padding:6px 0 0 14px;font-size:.75rem}
+    .center-line{display:none}
+    .event-card{margin:0 8px 2px}
+    .hero h1{font-size:1.9rem}
+    .hero p{font-size:.88rem;padding:0 8px}
+    .era-header{flex-wrap:wrap}.era-header .era-dates{margin-left:0;width:100%}
+    .evidence-grid{grid-template-columns:1fr}
+    .evidence-col:first-child{border-right:none;border-bottom:1px solid var(--border)}
+    .gallery-grid{grid-template-columns:1fr}
+    .legend-bar{gap:12px;padding:10px 16px}
+    .legend-item{font-size:.7rem}
+    .filter-bar{gap:5px;padding:6px 12px 10px}
+    .filter-btn{padding:4px 10px;font-size:.72rem}
+    .main{padding:20px 8px 60px}
+    .intro-note{padding:14px 16px;font-size:.82rem;margin:0 auto 24px}
+    .stats-headline .big-pct{font-size:2.6rem}
+    .corr-bar-wrap{padding:8px 20px 16px}
+    .stats-row{gap:12px;padding:10px 16px 14px}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <span class="hero-icon">&#x1F4DC;</span>
+  <h1>Biblical &amp; Historical Timeline</h1>
+  <p>From the Flood to the Early Church — aligning biblical events with archaeology, ancient documents, and the historical record across 100+ events</p>
+</div>
+
+<div class="sticky-bar">
+  <div class="legend-bar">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--biblical)"></div> Biblical tradition</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--historical)"></div> Historical / archaeological</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--align)"></div> Corroborated</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--document)"></div> Key document</div>
+  </div>
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Events</button>
+    <button class="filter-btn" data-filter="biblical">Biblical</button>
+    <button class="filter-btn" data-filter="historical">Historical</button>
+    <button class="filter-btn" data-filter="alignment">Corroborated</button>
+    <button class="filter-btn" data-filter="document">Documents</button>
+  </div>
+</div>
+
+<div class="main">
+  <div class="intro-note">
+    <strong>How to read this timeline:</strong>
+    <span class="desktop-only">Biblical events (<span style="color:var(--biblical);font-weight:600">brown, left</span>) sit alongside historical/archaeological events (<span style="color:var(--historical);font-weight:600">blue, right</span>).</span>
+    <span class="mobile-only">Events are color-coded: <span style="color:var(--biblical);font-weight:600">brown = biblical</span>, <span style="color:var(--historical);font-weight:600">blue = historical</span>.</span>
+    <span style="color:var(--align);font-weight:600">Green</span> marks corroborated events where both records align. <span style="color:var(--document);font-weight:600">Purple</span> highlights key documentary evidence. <strong>Click any event</strong> to expand details and sources.
+  </div>
+  <div id="stats-bar"></div>
+  <div id="timeline"></div>
+
+  <!-- ARTIFACT GALLERY -->
+  <div class="artifact-gallery">
+    <div class="gallery-header">
+      <h2>&#x1F3DB; Key Artifacts &amp; Inscriptions</h2>
+      <p>Physical evidence connecting the biblical narrative to the historical record — click to expand</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F4BF;</div>
+        <h4>Merneptah Stele</h4>
+        <div class="artifact-date">c. 1208 BCE</div>
+        <div class="artifact-loc">Egyptian Museum, Cairo</div>
+        <p>Victory stele of Pharaoh Merneptah containing the oldest known reference to "Israel" outside the Bible. The determinative hieroglyph marks Israel as a people, not a land — consistent with a semi-nomadic group not yet a state.</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F9F1;</div>
+        <h4>Tel Dan Stele</h4>
+        <div class="artifact-date">c. 840 BCE</div>
+        <div class="artifact-loc">Israel Museum, Jerusalem</div>
+        <p>Aramean victory inscription mentioning "the House of David" (bytdwd) — the earliest extra-biblical reference to a Davidic dynasty. Found at Tel Dan in 1993–94.</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F3FA;</div>
+        <h4>Caiaphas Ossuary</h4>
+        <div class="artifact-date">1st century CE</div>
+        <div class="artifact-loc">Israel Museum, Jerusalem</div>
+        <p>Lavishly decorated bone box inscribed "Joseph, son of Caiaphas." Found 1990 in Jerusalem's Peace Forest. Contains the remains of a 60-year-old male, likely the high priest who presided over Jesus' trial.</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F4FF;</div>
+        <h4>Pilate Stone</h4>
+        <div class="artifact-date">1st century CE</div>
+        <div class="artifact-loc">Israel Museum, Jerusalem</div>
+        <p>Limestone block inscribed "[Pont]ius Pilatus, [Praef]ectus Iuda[eae]." Found at Caesarea Maritima in 1961 — the only archaeological artifact naming Pontius Pilate.</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F4DC;</div>
+        <h4>Great Isaiah Scroll</h4>
+        <div class="artifact-date">c. 125 BCE</div>
+        <div class="artifact-loc">Shrine of the Book, Jerusalem</div>
+        <p>The oldest complete copy of any book of the Hebrew Bible. At 734 cm with all 66 chapters of Isaiah, it's ~1,000 years older than the previous oldest manuscripts. Shows remarkable fidelity with the medieval Masoretic Text.</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F3DB;</div>
+        <h4>Cyrus Cylinder</h4>
+        <div class="artifact-date">539 BCE</div>
+        <div class="artifact-loc">British Museum, London</div>
+        <p>Clay cylinder of Cyrus the Great describing his policy of allowing deported peoples to return home and rebuild temples. Broadly corroborates the decree in Ezra 1:1–4 allowing Jews to return to Jerusalem.</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F9BE;</div>
+        <h4>Yehohanan's Heel Bone</h4>
+        <div class="artifact-date">1st century CE</div>
+        <div class="artifact-loc">Israel Antiquities Authority</div>
+        <p>The only physical archaeological evidence of Roman crucifixion. A heel bone pierced by an 11.5 cm iron nail with olive wood fragments. Found at Giv'at ha-Mivtar, Jerusalem in 1968.</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F48E;</div>
+        <h4>Gilgamesh Flood Tablet (Tablet XI)</h4>
+        <div class="artifact-date">7th century BCE copy; story c. 2100 BCE</div>
+        <div class="artifact-loc">British Museum, London</div>
+        <p>Cuneiform tablet from Nineveh describing a great flood with striking parallels to Genesis: a boat, animals aboard, birds sent to find land, mountain landing, and sacrifice afterward. Discovered by Hormuzd Rassam; flood narrative identified by George Smith in 1872.</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F5FF;</div>
+        <h4>Mesha Stele (Moabite Stone)</h4>
+        <div class="artifact-date">c. 840 BCE</div>
+        <div class="artifact-loc">Louvre, Paris</div>
+        <p>King Mesha of Moab describes his revolt against Israel, mentioning Omri, the House of David, and Yahweh by name. Contains the earliest certain extra-biblical reference to Israel's God. Closely parallels 2 Kings 3.</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F3F0;</div>
+        <h4>Tower of Babel Stele</h4>
+        <div class="artifact-date">604–562 BCE</div>
+        <div class="artifact-loc">Iraq Museum, Baghdad</div>
+        <p>A 47 cm black stone stele depicting King Nebuchadnezzar II beside the Etemenanki ziggurat. Inscription describes raising "its top to heaven" and covering it with "bitumen and bricks" — echoing Genesis 11:3.</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x270D;&#xFE0F;</div>
+        <h4>Balaam Inscription (Deir Alla)</h4>
+        <div class="artifact-date">c. 840–760 BCE</div>
+        <div class="artifact-loc">Jordan Archaeological Museum, Amman</div>
+        <p>Plaster inscription referencing "Balaam, son of Beor" — the same name and lineage as the prophet in Numbers 22–24. The only extra-biblical reference to Balaam by name. Describes him as a "seer of the gods."</p>
+      </div>
+      <div class="artifact-card" onclick="this.classList.toggle('expanded')">
+        <div class="artifact-icon">&#x1F451;</div>
+        <h4>Nabonidus Cylinder</h4>
+        <div class="artifact-date">c. 550 BCE</div>
+        <div class="artifact-loc">British Museum, London</div>
+        <p>Confirms Belshazzar as the son of Nabonidus and co-regent of Babylon — vindicating Daniel 5 after centuries of scholarly doubt. Explains why Belshazzar could only offer Daniel the position of "third ruler."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEEP DIVE -->
+  <div class="deep-dive">
+    <div class="deep-dive-header">
+      <h2>&#x271D;&#xFE0F; Deep Dive: Evidence for the Death &amp; Resurrection of Jesus</h2>
+      <p>Non-Christian sources, archaeological finds, and the earliest Christian creed — click to expand</p>
+    </div>
+    <div class="evidence-grid">
+      <div class="evidence-col">
+        <h3>&#x1F4D6; Non-Christian Written Sources</h3>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">c. 93–94 CE</div>
+          <div class="ev-title">Josephus — Testimonium Flavianum</div>
+          <div class="ev-detail">Jewish historian mentions Jesus as a "wise man" crucified under Pilate. Most scholars accept an authentic core despite Christian interpolations. A 10th-c. Arabic version by Agapius may preserve the original wording.</div>
+          <div class="ev-verdict verdict-strong">Scholarly consensus: authentic core</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">c. 93–94 CE</div>
+          <div class="ev-title">Josephus — James passage (Ant. XX.9.1)</div>
+          <div class="ev-detail">Records the execution of "James, the brother of Jesus who is called Christ." Virtually no disputed interpolation — one of the strongest non-Christian references to Jesus' historicity.</div>
+          <div class="ev-verdict verdict-strong">Near-universal acceptance</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">c. 116 CE</div>
+          <div class="ev-title">Tacitus — Annals XV.44</div>
+          <div class="ev-detail">Roman historian writes that "Christus" suffered "the extreme penalty during the reign of Tiberius at the hands of one of our procurators, Pontius Pilatus." Tacitus was hostile to Christianity, making fabrication unlikely.</div>
+          <div class="ev-verdict verdict-strong">Widely accepted as independent</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">c. 110–112 CE</div>
+          <div class="ev-title">Pliny the Younger — Letter to Trajan</div>
+          <div class="ev-detail">Roman governor reports Christians sing hymns "to Christ as to a god" and swear oaths of ethical conduct. Confirms established worship within ~80 years of the crucifixion.</div>
+          <div class="ev-verdict verdict-strong">Universally accepted</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">3rd–6th c. CE</div>
+          <div class="ev-title">Babylonian Talmud — Sanhedrin 43a</div>
+          <div class="ev-detail">Records that "Yeshu" was executed on the eve of Passover for sorcery and leading Israel astray. Acknowledges Jesus' execution and attributes his miracles to sorcery rather than denying them.</div>
+          <div class="ev-verdict verdict-moderate">Late composition, may preserve early tradition</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">c. 165 CE</div>
+          <div class="ev-title">Lucian of Samosata — The Passing of Peregrinus</div>
+          <div class="ev-detail">Greek satirist describes Christians worshipping "the man who was crucified in Palestine." Neither Christian nor sympathetic, yet acknowledges the crucifixion as the movement's founding event.</div>
+          <div class="ev-verdict verdict-strong">Independent pagan attestation</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">c. 50 CE (via later quotation)</div>
+          <div class="ev-title">Thallus — Darkness at the crucifixion</div>
+          <div class="ev-detail">Roman historian reportedly explained the darkness at Jesus' crucifixion as a solar eclipse. Known only through Julius Africanus (c. 220 CE). If accurate, potentially the earliest non-Christian reference to the crucifixion.</div>
+          <div class="ev-verdict verdict-moderate">Potentially earliest, but transmission uncertain</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">post-73 CE</div>
+          <div class="ev-title">Mara bar Serapion — "Wise King"</div>
+          <div class="ev-detail">Syrian Stoic philosopher compares the unjust executions of Socrates, Pythagoras, and "the wise king" of the Jews. The non-Christian framing (no mention of resurrection) suggests an independent tradition.</div>
+          <div class="ev-verdict verdict-moderate">Probable Jesus reference, dating debated</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">c. 177 CE (via Origen)</div>
+          <div class="ev-title">Celsus — The True Word</div>
+          <div class="ev-detail">Most detailed early pagan critique of Christianity. Did not deny Jesus existed or was crucified — instead argued his miracles were sorcery learned in Egypt. Accepted the basic events while offering naturalistic alternatives.</div>
+          <div class="ev-verdict verdict-strong">Confirms events, offers counter-narratives</div>
+        </div>
+      </div>
+      <div class="evidence-col">
+        <h3>&#x1F3DB; Archaeological &amp; Textual Evidence</h3>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">c. 30–35 CE</div>
+          <div class="ev-title">Early creed — 1 Corinthians 15:3–7</div>
+          <div class="ev-detail">Paul quotes a pre-existing formula listing resurrection appearances to Peter, the Twelve, 500+, James, and Paul. Scholars date this to within 2–5 years of the crucifixion. Even skeptic Lüdemann: "the first two years after the crucifixion." Too early for legendary development.</div>
+          <div class="ev-verdict verdict-strong">Consensus: formed within 2–8 years</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">1961</div>
+          <div class="ev-title">Pilate Stone — Caesarea Maritima</div>
+          <div class="ev-detail">Limestone inscribed "[Pont]ius Pilatus, [Praef]ectus Iuda[eae]." The only artifact naming Pilate. Confirms his title as prefect (not procurator), his governance of Judea, and matches Gospel chronology.</div>
+          <div class="ev-verdict verdict-strong">Definitive confirmation</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">1990</div>
+          <div class="ev-title">Caiaphas Ossuary — Jerusalem</div>
+          <div class="ev-detail">Inscribed "Joseph, son of Caiaphas." Lavishly decorated ossuary with 60-year-old male remains. The Caiaphas family served as high priest 18–36 CE — the period of Jesus' trial. Now in the Israel Museum.</div>
+          <div class="ev-verdict verdict-strong">Strong identification</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">1968</div>
+          <div class="ev-title">Yehohanan — Crucified man of Giv'at ha-Mivtar</div>
+          <div class="ev-detail">Only archaeological evidence of Roman crucifixion: a heel bone pierced by an 11.5 cm iron nail with olive wood. 1st century CE. Confirms crucifixion was practiced exactly as described in the Gospels.</div>
+          <div class="ev-verdict verdict-strong">Only physical evidence of crucifixion</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">2004</div>
+          <div class="ev-title">Pool of Siloam — discovered archaeologically</div>
+          <div class="ev-detail">Monumental stone steps from the Second Temple period, 225 feet long. Found during pipe repairs near the City of David. Confirms the location in John 9 where Jesus heals a blind man.</div>
+          <div class="ev-verdict verdict-strong">Gospel location confirmed</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">19th c. onward</div>
+          <div class="ev-title">Pool of Bethesda — Five porticoes confirmed</div>
+          <div class="ev-detail">John 5:2 describes "five porticoes" — long dismissed as symbolic. Excavations revealed two basins divided by a central wall, creating five sides with colonnades. An unusual architectural detail confirmed.</div>
+          <div class="ev-verdict verdict-strong">Unusual detail confirmed</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">2002 (acquitted 2012)</div>
+          <div class="ev-title">James Ossuary — "Brother of Jesus"</div>
+          <div class="ev-detail">Inscribed "James, son of Joseph, brother of Jesus." Owner acquitted of forgery charges in 2012 after 7-year trial. Judge clarified acquittal doesn't prove authenticity. Paleographers Lemaire and Yardeni authenticated the inscription.</div>
+          <div class="ev-verdict verdict-debated">Acquitted of forgery, authenticity debated</div>
+        </div>
+        <div class="evidence-item" onclick="this.classList.toggle('expanded')">
+          <div class="ev-date">Scholarly survey</div>
+          <div class="ev-title">Minimal Facts — cross-spectrum consensus</div>
+          <div class="ev-detail">Habermas surveyed 2,200+ publications: virtually all scholars accept (1) Jesus was crucified, (2) disciples believed they saw the risen Jesus, (3) Paul converted from persecutor, (4) James converted from skeptic. ~75% accept the empty tomb. Ancient critics offered alternatives but did not deny the events.</div>
+          <div class="ev-verdict verdict-strong">Core facts accepted across spectrum</div>
+        </div>
+      </div>
+    </div>
+    <div class="summary-box">
+      <strong>Summary:</strong> The crucifixion under Pilate is confirmed by multiple independent non-Christian sources (Tacitus, Josephus, Lucian, Talmud, Pliny, Celsus, and possibly Thallus and Mara bar Serapion). The resurrection claim is attested in a creed dating to within 2–5 years of the event. Key locations and figures have been archaeologically confirmed. Ancient critics acknowledged the events while offering alternative explanations — they did not deny them.
+    </div>
+  </div>
+</div>
+
+<footer>
+  Sources include Kitchen, Finkelstein, Mazar, Josephus, Tacitus, Meier, Habermas, Brown, Hemer, VanderKam, and others. All dates follow mainstream scholarly consensus where available. Where biblical and scholarly chronologies diverge, both perspectives are noted. Click individual events for source citations.
+</footer>
+
+<script>
+const DATA = [
+  // === ERA 1: PRE-PATRIARCHAL — FLOOD & BABEL ===
+  {
+    era:"flood", eraLabel:"The Flood & Tower of Babel", eraIcon:"\u{1F30A}", eraColor:"#4A6B8A", eraDates:"Ancient / Pre-Patriarchal",
+    events:[
+      {date:"Ancient",sort:-5000,side:"biblical",type:"biblical",title:"The Great Flood — Noah's Ark",icon:"\u{1F6F6}",desc:"Genesis 6–9 — God sends a flood to destroy a corrupt world, saving Noah, his family, and pairs of every animal on an ark. Jesus references the flood as historical in Matthew 24:37–39, comparing Noah's day to his Second Coming: 'they knew nothing about what would happen until the flood came and took them all away.' Job, David, Isaiah, and Peter also reference the flood.",source:"Genesis 6–9; Matthew 24:37–39; 1 Peter 3:20; 2 Peter 2:5"},
+      {date:"c. 2100 BCE+",sort:-4000,side:"historical",type:"document",title:"Epic of Gilgamesh — Flood parallels",icon:"\u{1F4DC}",desc:"Mesopotamian epic containing a flood narrative with striking parallels to Genesis: Utnapishtim builds a boat on divine warning, takes animals aboard, sends out birds (dove, swallow, raven) to find dry land, lands on a mountain, and offers sacrifice afterward. Tablets from Nineveh (7th c. BCE copies of older material) discovered by Hormuzd Rassam; flood narrative identified by George Smith in 1872. The story dates to at least the early 2nd millennium BCE.",source:"Epic of Gilgamesh, Tablet XI; George Smith, The Chaldean Account of Genesis (1876)"},
+      {date:"c. 1800 BCE",sort:-3900,side:"historical",type:"document",title:"Atrahasis Epic — oldest flood account",icon:"\u{1F4DC}",desc:"An 18th-century BCE Akkadian epic considered the prototype for both Gilgamesh and biblical flood traditions. Atrahasis ('exceedingly wise') is warned by the god Ea to build a ship to survive a divine flood. He saves his family and animals. Many scholars view Atrahasis as evidence that the flood narrative has deep Mesopotamian roots predating the biblical text.",source:"Atrahasis Epic; Lambert & Millard, Atra-Hasis: The Babylonian Story of the Flood (1969)"},
+      {date:"Global",sort:-3800,side:"historical",type:"alignment",title:"270+ flood legends worldwide",icon:"\u{1F30D}",desc:"Over 200–300 flood narratives exist across virtually every culture — Mesopotamian, Greek (Deucalion), Hindu (Matsya/Manu), Chinese (Gun-Yu), Hawaiian (Nu'u), Aboriginal Australian, Aztec/Toltec, and many more. Common elements: ~95% describe a great flood, ~88% mention a favored family, ~70% involve survival by boat, ~66% connect the flood to divine judgment, ~35% include birds sent to find land, and ~9% specify eight people saved. The sheer number and commonality of these traditions is notable regardless of interpretation.",source:"Frazer, Folk-Lore in the Old Testament (1918); various anthropological surveys"},
+      {date:"Various",sort:-3700,side:"historical",type:"historical",title:"Fossil evidence of rapid burial",icon:"\u{1FAB8}",desc:"Billions of fossils show evidence of rapid burial: fish fossilized mid-meal, jellyfish preserved despite being 95% water, ichthyosaurs fossilized during birth. Fossilization of soft-bodied organisms requires rapid burial in oxygen-poor sediment — a process scientists call Lagerstätten. Marine fossils (ammonites, trilobites) are found atop the Himalayas and at the Grand Canyon rim. Mainstream geology attributes mountaintop marine fossils to plate tectonics raising ancient seafloor over millions of years. Polystrate fossils (trees extending through multiple rock layers) are documented worldwide.",source:"Fossil Butte National Monument; various geological surveys"},
+      {date:"c. 2900 BCE",sort:-2900,side:"historical",type:"alignment",title:"Mesopotamian flood deposits — Ur, Shuruppak, Kish",icon:"\u{1F3DA}",desc:"Archaeologist Leonard Woolley found ~8 feet of sterile flood deposits at Ur in 1929, with prehistoric artifacts below. Similar flood layers found at Shuruppak (the home city of the flood hero in Gilgamesh) and Kish, dated c. 2900–2800 BCE. Woolley believed he had found evidence of 'the Flood.' While mainstream archaeology views these as severe local floods at different times, the deposits demonstrate that catastrophic flooding did occur in the region where the biblical and Mesopotamian flood traditions originated.",source:"Woolley, Ur Excavations (1929); Mallowan, Iraq 26 (1964)"},
+      {date:"Ancient",sort:-3500,side:"biblical",type:"biblical",title:"Tower of Babel — confusion of languages",icon:"\u{1F3F0}",desc:"Genesis 11:1–9 — Humanity, speaking one language, builds a tower 'with its top in the heavens.' God confuses their languages and scatters them. The description (baked brick, tar mortar, a plain in Shinar/Mesopotamia, a tower reaching heaven) matches Mesopotamian ziggurat construction precisely.",source:"Genesis 11:1–9"},
+      {date:"604–562 BCE",sort:-3400,side:"historical",type:"alignment",title:"Etemenanki — the historical Tower of Babel",icon:"\u{1F3DB}",desc:"The Etemenanki ('Temple of the Foundation of Heaven and Earth') was a massive ziggurat in Babylon with a ~91-meter square base, rebuilt by Nebuchadnezzar II. A black stone stele (now in the Iraq Museum) depicts Nebuchadnezzar beside the tower with the inscription: 'I raised its top to heaven, made doors for the gates, and I covered it with bitumen and bricks' — language strikingly close to Genesis 11:3–4. The Sumerian Enmerkar epic also contains a passage about the god Enki changing the speech of mankind.",source:"Tower of Babel Stele (Iraq Museum); Enmerkar and the Lord of Aratta; George Smith, Chaldean Account of Genesis (1876)"},
+    ]
+  },
+  // === ERA 2: PATRIARCHS ===
+  {
+    era:"patriarchs", eraLabel:"Patriarchal & Ancestral Period", eraIcon:"\u{1F3D5}", eraColor:"#A0845C", eraDates:"c. 2000–1550 BCE",
+    events:[
+      {date:"c. 2000 BCE",sort:-2000,side:"biblical",type:"biblical",title:"Abraham's journey from Ur to Canaan",icon:"\u{1F9ED}",desc:"Genesis 12 — Abraham called to leave Mesopotamia. Cultural details (pastoral nomadism, treaty forms, naming conventions) fit the Middle Bronze Age.",source:"Genesis 12–25; Kitchen, On the Reliability of the OT (2003)"},
+      {date:"c. 2000 BCE",sort:-2000,side:"historical",type:"historical",title:"Middle Bronze Age begins in the Levant",icon:"\u{1F3DA}",desc:"Urbanization flourishes. Cities like Hazor, Megiddo, and Shechem grow. Trade routes connect Egypt, Mesopotamia, and the Mediterranean.",source:"Mazar, Archaeology of the Land of the Bible (1990)"},
+      {date:"c. 1900 BCE",sort:-1900,side:"historical",type:"historical",title:"Code of Hammurabi composed",icon:"\u{1F4DC}",desc:"Babylonian legal code with parallels to biblical law (lex talionis, property law), though direct borrowing is debated.",source:"Roth, Law Collections from Mesopotamia (1997)"},
+      {date:"c. 1876 BCE",sort:-1876,side:"biblical",type:"biblical",title:"Jacob's family settles in Egypt",icon:"\u{1F42A}",desc:"Genesis 46 — Joseph, having risen to power in Egypt, brings his family to Goshen. The Hyksos period provides a plausible context for Semites holding power.",source:"Genesis 37–50"},
+      {date:"c. 1650 BCE",sort:-1650,side:"historical",type:"alignment",title:"Hyksos (Semitic peoples) rule Egypt",icon:"\u{1F451}",desc:"The 15th Dynasty — rulers of Asiatic origin — governed Lower Egypt from Avaris (c. 1650–1550 BCE). Provides a historical context in which Semitic peoples could achieve high status, aligning with the Joseph narrative.",source:"Redford, Egypt, Canaan, and Israel (1992)"},
+      {date:"c. 1650 BCE",sort:-1649,side:"historical",type:"alignment",title:"Sodom & Gomorrah — Tall el-Hammam destruction",icon:"\u{1F525}",desc:"Genesis 19 describes the destruction of Sodom by fire and brimstone. Tall el-Hammam, a massive Bronze Age city near the Dead Sea matching biblical geography, shows a dramatic destruction layer c. 1650 BCE with evidence of extreme heat (melted pottery, mudbricks). A 2021 Scientific Reports study proposed a cosmic airburst, though this paper was subsequently retracted and the specific cause remains debated. The destruction of this major city in the region and period is documented regardless.",source:"Genesis 19; Collins et al. excavation reports; Scientific Reports (2021, retracted)"},
+    ]
+  },
+  // === ERA 3: EXODUS & SETTLEMENT ===
+  {
+    era:"exodus", eraLabel:"Exodus, Conquest & Settlement", eraIcon:"\u{1F3DC}", eraColor:"#C47A3A", eraDates:"c. 1550–1050 BCE",
+    events:[
+      {date:"c. 1550 BCE",sort:-1550,side:"historical",type:"historical",title:"Expulsion of the Hyksos from Egypt",icon:"\u{2694}\uFE0F",desc:"Pharaoh Ahmose I drives out the Hyksos, founding the New Kingdom. Some scholars connect this to folk memories behind the Exodus narrative.",source:"Shaw, Oxford History of Ancient Egypt (2000)"},
+      {date:"c. 1457 BCE",sort:-1457,side:"historical",type:"historical",title:"Battle of Megiddo — Thutmose III",icon:"\u{2694}\uFE0F",desc:"Egypt's first well-documented military campaign in Canaan. Egyptian control of the Levant intensifies.",source:"Cline, The Battles of Armageddon (2000)"},
+      {date:"c. 1350 BCE",sort:-1350,side:"historical",type:"historical",title:"Amarna Letters — 'Habiru' in Canaan",icon:"\u{1F4DC}",desc:"Cuneiform tablets describe Canaanite city-states appealing to Pharaoh for help against 'Habiru' raiders. Whether 'Habiru' relates to 'Hebrew' is debated but notable.",source:"Moran, The Amarna Letters (1992)"},
+      {date:"c. 1250 BCE",sort:-1250,side:"biblical",type:"biblical",title:"The Exodus from Egypt",icon:"\u{1F30A}",desc:"Exodus 12–15 — Israel leaves Egypt under Moses. Scholarly dating places this in the 13th century BCE. No direct Egyptian record has been found.",source:"Exodus 1–15; Hoffmeier, Israel in Egypt (1997)"},
+      {date:"Various",sort:-1249,side:"historical",type:"document",title:"Ipuwer Papyrus — plague parallels",icon:"\u{1F4DC}",desc:"An Egyptian papyrus containing descriptions including 'the river is blood,' references to darkness, social upheaval, and servants fleeing with wealth — paralleling the Exodus plagues. Originally composed c. 1991–1803 BCE (disputed). Mainstream scholars do not accept a direct connection to the Exodus due to dating uncertainties and contextual differences, but the thematic parallels are noted.",source:"Papyrus Leiden I 344 recto; Rijksmuseum van Oudheden, Leiden"},
+      {date:"c. 1209 BCE",sort:-1209,side:"historical",type:"alignment",title:"Merneptah Stele — earliest mention of 'Israel'",icon:"\u{1F5FF}",desc:"Egyptian pharaoh Merneptah's victory stele (c. 1208 BCE): 'Israel is laid waste, his seed is not.' The oldest known reference to Israel outside the Bible.",source:"Kitchen, On the Reliability of the OT (2003)"},
+      {date:"c. 1200 BCE",sort:-1200,side:"historical",type:"historical",title:"Late Bronze Age Collapse",icon:"\u{1F4A5}",desc:"Hittites, Mycenaeans, Ugarit fall. Egyptian withdrawal from Canaan creates a power vacuum for new peoples — Israelites, Philistines, Aramaeans.",source:"Cline, 1177 B.C. (2014)"},
+      {date:"c. 1400 or 1550 BCE",sort:-1199,side:"historical",type:"alignment",title:"Jericho — walls that 'fell down flat'",icon:"\u{1F3F0}",desc:"Joshua 6 describes Jericho's walls falling outward. Garstang's excavation (1930–36) found walls that had fallen outward and grain-filled storage jars (indicating a short siege). He dated destruction to c. 1400 BCE. Kenyon (1952–58) redated it to c. 1550 BCE. Bryant Wood's 1990 reanalysis argued Kenyon's pottery analysis was flawed and the evidence fits c. 1400 BCE. Recent excavations by Lorenzo Nigro suggest Late Bronze Age occupation that Kenyon may have missed. The debate continues, but the dramatic destruction of ancient Jericho is documented.",source:"Joshua 6; Garstang, The Story of Jericho (1940); Wood, BAR 16:2 (1990); Kenyon, Digging Up Jericho (1957)"},
+      {date:"c. 1200 BCE",sort:-1198,side:"biblical",type:"biblical",title:"Conquest and settlement of Canaan",icon:"\u{2694}\uFE0F",desc:"Joshua 1–12 — Israelite entry into the promised land. Evidence is mixed site by site, but Hazor shows destruction c. 1230 BCE consistent with the narrative.",source:"Joshua 1–24; Finkelstein & Silberman, The Bible Unearthed (2001)"},
+      {date:"c. 1200 BCE",sort:-1197,side:"historical",type:"alignment",title:"Highland settlements appear in Canaan",icon:"\u{1F3D8}",desc:"~300 small villages appear in the central hill country c. 1200–1000 BCE with distinctive features (no pig bones, simple pottery). Many scholars identify these as early Israelite settlements.",source:"Finkelstein, Archaeology of the Israelite Settlement (1988)"},
+      {date:"c. 1175 BCE",sort:-1175,side:"historical",type:"alignment",title:"Philistines settle the coastal plain",icon:"\u{1F6A2}",desc:"Sea Peoples (Peleset/Philistines) settle Gaza, Ashkelon, Ashdod, Ekron, and Gath — matching the Bible's portrayal of Israel's coastal rivals.",source:"Dothan & Dothan, People of the Sea (1992)"},
+      {date:"c. 1150–1025 BCE",sort:-1150,side:"biblical",type:"biblical",title:"Period of the Judges",icon:"\u{2696}\uFE0F",desc:"Judges 1–21 — Decentralized era of tribal leaders. The archaeological picture of scattered, unwalled highland villages is consistent with a pre-monarchic tribal society.",source:"Judges 1–21"},
+    ]
+  },
+  // === ERA 4: MONARCHY ===
+  {
+    era:"monarchy", eraLabel:"United & Divided Monarchy", eraIcon:"\u{1F451}", eraColor:"#7B3FA0", eraDates:"c. 1050–586 BCE",
+    events:[
+      {date:"c. 1020 BCE",sort:-1020,side:"biblical",type:"biblical",title:"Saul becomes Israel's first king",icon:"\u{1F451}",desc:"1 Samuel 9–10 — Saul anointed as king. No direct evidence for Saul, but the tribal-to-monarchic transition fits the regional pattern.",source:"1 Samuel 9–31"},
+      {date:"c. 1020–980 BCE",sort:-1010,side:"historical",type:"alignment",title:"Khirbet Qeiyafa — fortified Davidic-era city",icon:"\u{1F3F0}",desc:"A fortified city overlooking the Elah Valley (where David fought Goliath — 1 Samuel 17). Carbon-14 dating of olive pits: 1020–980 BCE. The only 10th-century site with two city gates. Excavators identified it as a fortress of King David, though attribution is debated.",source:"Garfinkel et al., Khirbet Qeiyafa excavation reports"},
+      {date:"c. 1000 BCE",sort:-1000,side:"biblical",type:"biblical",title:"David captures Jerusalem",icon:"\u{1F3F0}",desc:"2 Samuel 5 — David conquers Jebusite Jerusalem. Eilat Mazar's excavations uncovered the Large Stone Structure (11th–10th c. BCE) in the City of David, with walls 6–8 feet wide and a cache of over 100 bullae (clay seals), which she identified as David's palace. This attribution is debated by some archaeologists.",source:"2 Samuel 5–7; Mazar, Excavations at the Summit of the City of David (2009)"},
+      {date:"c. 960 BCE",sort:-960,side:"biblical",type:"biblical",title:"Solomon builds the First Temple",icon:"\u{1F3DB}",desc:"1 Kings 6 — No remains found (site beneath Haram al-Sharif), but the architectural plan parallels excavated Syrian/Phoenician temples of the period.",source:"1 Kings 5–8; Monson, The New 'Ain Dara Temple (2000)"},
+      {date:"c. 930 BCE",sort:-930,side:"biblical",type:"biblical",title:"Kingdom divides: Israel & Judah",icon:"\u{1F52A}",desc:"1 Kings 12 — Northern tribes secede. From here, archaeology increasingly corroborates two distinct kingdoms.",source:"1 Kings 12"},
+      {date:"c. 925 BCE",sort:-925,side:"historical",type:"alignment",title:"Pharaoh Shishak invades Canaan",icon:"\u{2694}\uFE0F",desc:"A relief at Karnak lists cities Shoshenq I conquered — matching 1 Kings 14:25–26 on Shishak's attack.",source:"1 Kings 14:25–26; Kitchen, Third Intermediate Period (1986)"},
+      {date:"c. 853 BCE",sort:-853,side:"historical",type:"alignment",title:"Battle of Qarqar — Ahab of Israel",icon:"\u{2694}\uFE0F",desc:"Shalmaneser III's Kurkh Monolith lists 'Ahab the Israelite' contributing 2,000 chariots. One of the earliest extra-biblical references to a named Israelite king.",source:"Kurkh Monolith; ANET p. 279"},
+      {date:"c. 840 BCE",sort:-840,side:"historical",type:"alignment",title:"Tel Dan Stele — 'House of David'",icon:"\u{1F9F1}",desc:"Aramean victory stele mentioning 'the House of David' (bytdwd). Earliest extra-biblical reference to David. Found 1993–94.",source:"Biran & Naveh, IEJ 43 (1993)"},
+      {date:"c. 840 BCE",sort:-839,side:"historical",type:"alignment",title:"Mesha Stele — parallels 2 Kings",icon:"\u{1F5FF}",desc:"King Mesha of Moab describes his revolt against Israel, mentioning Omri, the House of David, and Yahweh by name. The earliest certain extra-biblical reference to Israel's God.",source:"Mesha Stele (Louvre); 2 Kings 3"},
+      {date:"c. 840–760 BCE",sort:-838,side:"historical",type:"alignment",title:"Balaam Inscription — Deir Alla",icon:"\u{270D}\uFE0F",desc:"A plaster inscription in Jordan directly references 'Balaam, son of Beor' — the exact same name and lineage as the prophet in Numbers 22–24. The only extra-biblical reference to Balaam by name. Describes him as a 'seer of the gods.' Found during 1967 excavations.",source:"Deir Alla Inscription; Numbers 22–24"},
+      {date:"c. 722 BCE",sort:-722,side:"historical",type:"alignment",title:"Assyria conquers northern Israel",icon:"\u{2694}\uFE0F",desc:"Sargon II's annals describe the conquest of Samaria and deportation of 27,290 Israelites. Matches 2 Kings 17.",source:"2 Kings 17; Sargon II annals"},
+      {date:"c. 701 BCE",sort:-701,side:"historical",type:"alignment",title:"Sennacherib besieges Jerusalem",icon:"\u{1F3F0}",desc:"Taylor Prism: Hezekiah shut up 'like a caged bird.' Does NOT claim to have captured Jerusalem — consistent with the biblical claim of deliverance.",source:"2 Kings 18–19; Taylor Prism (British Museum)"},
+      {date:"c. 700 BCE",sort:-700,side:"historical",type:"alignment",title:"Hezekiah's Tunnel constructed",icon:"\u{1F4A7}",desc:"533-meter tunnel with an inscription describing the engineering feat. Matches 2 Kings 20:20.",source:"Siloam Inscription; 2 Kings 20:20"},
+      {date:"c. 609 BCE",sort:-609,side:"historical",type:"alignment",title:"King Josiah killed at Megiddo",icon:"\u{2694}\uFE0F",desc:"Babylonian Chronicles confirm the geopolitical situation; 2 Kings 23:29 records Josiah's death.",source:"2 Kings 23:29; Babylonian Chronicles"},
+    ]
+  },
+  // === ERA 5: EXILE & RETURN ===
+  {
+    era:"exile", eraLabel:"Exile, Daniel & Persian Period", eraIcon:"\u{26D3}\uFE0F", eraColor:"#A03A3A", eraDates:"586–332 BCE",
+    events:[
+      {date:"586 BCE",sort:-586,side:"historical",type:"alignment",title:"Nebuchadnezzar destroys Jerusalem",icon:"\u{1F525}",desc:"Babylonian Chronicles confirm the siege. Extensive destruction layers found. The Bible's account (2 Kings 25, Jeremiah 52) aligns closely.",source:"2 Kings 25; Babylonian Chronicles; Lipschits (2005)"},
+      {date:"586 BCE",sort:-585,side:"biblical",type:"biblical",title:"The Exile begins",icon:"\u{26D3}\uFE0F",desc:"2 Kings 25 — Judah's elite deported to Babylon. The Al-Yahudu tablets (~200 cuneiform documents) confirm a Judean community in Babylonia.",source:"Jeremiah 52; Pearce & Wunsch (2014)"},
+      {date:"c. 553 BCE",sort:-553,side:"historical",type:"alignment",title:"Belshazzar confirmed as co-regent — vindicates Daniel",icon:"\u{1F451}",desc:"For centuries scholars called Belshazzar fictional. The Nabonidus Cylinder (discovered 1854) confirmed him as Nabonidus' son and co-regent. Daniel 5's detail that Belshazzar offered Daniel the position of 'third ruler' now makes perfect sense: Nabonidus was first, Belshazzar second, third was the highest rank available to offer.",source:"Daniel 5; Nabonidus Cylinder (British Museum)"},
+      {date:"539 BCE",sort:-539,side:"historical",type:"alignment",title:"Cyrus conquers Babylon — Jews return",icon:"\u{1F3DB}",desc:"The Cyrus Cylinder describes allowing deported peoples to return and rebuild temples — corroborating Ezra 1:1–4.",source:"Cyrus Cylinder (British Museum); Ezra 1:1–4"},
+      {date:"c. 516 BCE",sort:-516,side:"biblical",type:"biblical",title:"Second Temple completed",icon:"\u{1F3DB}",desc:"Ezra 6:15 — The rebuilt Temple is dedicated. Well-attested in subsequent historical sources.",source:"Ezra 6; Haggai 1–2"},
+      {date:"c. 450 BCE",sort:-450,side:"biblical",type:"biblical",title:"Nehemiah rebuilds Jerusalem's walls",icon:"\u{1F9F1}",desc:"Nehemiah 1–6 — Nehemiah, cupbearer to Artaxerxes I. Excavations have found possible Nehemiah-era fortification remnants.",source:"Nehemiah 1–6"},
+      {date:"c. 450 BCE",sort:-449,side:"historical",type:"historical",title:"Elephantine Papyri — Jews in Egypt",icon:"\u{1F4DC}",desc:"Aramaic documents from a Jewish military colony at Elephantine, referencing the Jerusalem temple and the Persian governor of Judah.",source:"Porten, Archives from Elephantine (1968)"},
+    ]
+  },
+  // === ERA 6: DEAD SEA SCROLLS & SECOND TEMPLE ===
+  {
+    era:"scrolls", eraLabel:"Dead Sea Scrolls & Second Temple", eraIcon:"\u{1F4DC}", eraColor:"#8A5BA0", eraDates:"332 BCE – 68 CE",
+    events:[
+      {date:"332 BCE",sort:-332,side:"historical",type:"historical",title:"Alexander the Great conquers the Levant",icon:"\u{2694}\uFE0F",desc:"Greek culture spreads across the Near East. The Hellenistic period transforms Jewish culture, politics, and religion.",source:"Tcherikover, Hellenistic Civilization and the Jews (1959)"},
+      {date:"c. 250 BCE",sort:-250,side:"historical",type:"document",title:"Earliest Dead Sea Scrolls composed",icon:"\u{1F4DC}",desc:"~930 manuscripts in ~15,000 fragments found in 11 caves near Qumran (1947–1956). Include every Hebrew Bible book except Esther, plus sectarian and apocalyptic writings.",source:"VanderKam & Flint, The Meaning of the Dead Sea Scrolls (2002)"},
+      {date:"c. 150 BCE",sort:-150,side:"historical",type:"document",title:"4Q521 — Messianic Apocalypse",icon:"\u{2728}",desc:"Describes a messiah who heals the blind, raises the dead, and proclaims good news to the poor (Isaiah 35, 61). When asked if he is the Messiah, Jesus lists these same signs (Matthew 11:2–5, Luke 7:22). Both share the same interpretive tradition.",source:"4Q521; Puech, Revue de Qumran (1992)"},
+      {date:"c. 125 BCE",sort:-125,side:"historical",type:"document",title:"Great Isaiah Scroll — oldest complete biblical book",icon:"\u{1F4DC}",desc:"734 cm, all 66 chapters. ~1,000 years older than previous known manuscripts. Comparison with medieval Masoretic Text shows remarkable fidelity — confirming faithful scribal transmission over a millennium.",source:"Shrine of the Book, Israel Museum"},
+      {date:"c. 100 BCE",sort:-100,side:"historical",type:"document",title:"Community Rule, War Scroll, Temple Scroll",icon:"\u{1F4DC}",desc:"Sectarian texts revealing a Jewish community with strict rules, a 'light vs. darkness' worldview, apocalyptic expectations, and detailed temple regulations. Illuminate the Jewish world from which Christianity emerged.",source:"1QS, 1QM, 11QT; Vermes, The Complete Dead Sea Scrolls (1997)"},
+      {date:"167 BCE",sort:-167,side:"historical",type:"alignment",title:"Maccabean Revolt",icon:"\u{2694}\uFE0F",desc:"Antiochus IV desecrates the Temple. Corroborated by 1 Maccabees, Josephus, and archaeological destruction layers.",source:"1 Maccabees; Josephus, Antiquities XII"},
+      {date:"164 BCE",sort:-164,side:"biblical",type:"biblical",title:"Temple rededicated (Hanukkah)",icon:"\u{1F56F}\uFE0F",desc:"1 Maccabees 4:36–59. Referenced by Jesus in John 10:22.",source:"1 Maccabees 4; John 10:22"},
+      {date:"63 BCE",sort:-63,side:"historical",type:"historical",title:"Pompey conquers Jerusalem",icon:"\u{1F3DB}",desc:"Roman general enters the Holy of Holies. Judea becomes a Roman client state.",source:"Josephus, Antiquities XIV"},
+    ]
+  },
+  // === ERA 7: LIFE OF JESUS ===
+  {
+    era:"jesus", eraLabel:"Life of Jesus & Evidence", eraIcon:"\u{271D}\uFE0F", eraColor:"#B8860B", eraDates:"c. 6 BCE – 35 CE",
+    events:[
+      {date:"37–4 BCE",sort:-37,side:"historical",type:"alignment",title:"Herod the Great rules Judea",icon:"\u{1F451}",desc:"Massive building projects confirmed archaeologically (Temple Mount, Western Wall). Matthew 2 places Jesus' birth during Herod's reign.",source:"Josephus, Ant. XV–XVII; Matthew 2"},
+      {date:"c. 6–4 BCE",sort:-5,side:"biblical",type:"biblical",title:"Birth of Jesus of Nazareth",icon:"\u{2B50}",desc:"Matthew 1–2, Luke 1–2 — Born during Herod's reign (d. 4 BCE).",source:"Matthew 1–2; Luke 1–2"},
+      {date:"c. 26–36 CE",sort:26,side:"historical",type:"alignment",title:"Pontius Pilate governs Judea",icon:"\u{1F4FF}",desc:"Confirmed by the Pilate Stone (1961), Josephus, Philo, and Tacitus. The only archaeological artifact naming Pilate.",source:"Pilate Stone (Israel Museum); Josephus, Ant. XVIII"},
+      {date:"c. 30 CE",sort:29,side:"historical",type:"alignment",title:"Pool of Bethesda & Pool of Siloam confirmed",icon:"\u{1F4A7}",desc:"John 5:2's 'five porticoes' — confirmed by excavation (two basins, central wall). Pool of Siloam discovered 2004: monumental Second Temple steps, 225 ft long. Both Gospel locations archaeologically validated.",source:"John 5:2; John 9; Reich & Shukron (2004)"},
+      {date:"c. 30–33 CE",sort:30,side:"biblical",type:"biblical",title:"Crucifixion of Jesus under Pilate",icon:"\u{271D}\uFE0F",desc:"Confirmed by Tacitus, Josephus, Lucian, Talmud, Pliny, and possibly Thallus. The Caiaphas Ossuary (1990) confirms the high priest of the trial. Yehohanan's heel bone (1968) provides the only physical evidence of Roman crucifixion. The crucifixion is the most widely accepted fact about Jesus across all scholarly positions.",source:"All four Gospels; Tacitus, Annals XV.44; Josephus, Ant. XVIII.3.3"},
+      {date:"c. 30–33 CE",sort:31,side:"biblical",type:"biblical",title:"Resurrection of Jesus",icon:"\u{2728}",desc:"The earliest testimony is the creed in 1 Cor 15:3–7, dated to within 2–5 years. Lists appearances to Peter, the Twelve, 500+, James, and Paul. ~75% of scholars accept the empty tomb. Ancient critics (Celsus, Talmud) offered alternative explanations but did not deny the events.",source:"1 Cor 15:3–7; Matthew 28; Mark 16; Luke 24; John 20–21"},
+      {date:"c. 32–35 CE",sort:33,side:"historical",type:"alignment",title:"1 Corinthians 15 creed — earliest resurrection testimony",icon:"\u{1F4DC}",desc:"Pre-Pauline formula with Aramaic features ('Cephas') pointing to the Jerusalem church. Even skeptic Lüdemann dates it to 'the first two years after the crucifixion.' Too early for legendary development.",source:"1 Cor 15:3–7; Hengel, Studies in Early Christology (1995)"},
+    ]
+  },
+  // === ERA 8: APOSTOLIC AGE ===
+  {
+    era:"apostolic", eraLabel:"Apostolic Age & Early Church", eraIcon:"\u{26EA}", eraColor:"#3A8A5C", eraDates:"33–112 CE",
+    events:[
+      {date:"c. 33–35 CE",sort:34,side:"historical",type:"alignment",title:"Paul's conversion",icon:"\u{26A1}",desc:"Persecutor becomes the movement's greatest apostle. Attested in his letters and Acts. A hostile witness becoming the chief advocate requires explanation.",source:"Galatians 1:13–16; Acts 9; 1 Cor 15:8–10"},
+      {date:"c. 49–51 CE",sort:49,side:"historical",type:"alignment",title:"Gallio inscription confirms Acts 18",icon:"\u{1F4DC}",desc:"Delphi inscription dates Gallio as proconsul of Achaia to c. 51–52 CE, matching Acts 18:12–17. Key anchor for Pauline chronology.",source:"Delphi Inscription; Acts 18:12–17"},
+      {date:"c. 50 CE",sort:50,side:"biblical",type:"biblical",title:"1 Thessalonians — earliest NT book",icon:"\u{270D}\uFE0F",desc:"Earliest surviving Christian document, c. 49–51 CE.",source:"1 Thessalonians"},
+      {date:"62 CE",sort:62,side:"historical",type:"alignment",title:"James executed — confirmed by Josephus",icon:"\u{2694}\uFE0F",desc:"Josephus records 'James, the brother of Jesus who is called Christ' stoned. Virtually uncontested passage. James was a skeptic during Jesus' ministry — his conversion and martyrdom require explanation.",source:"Josephus, Ant. XX.9.1; 1 Cor 15:7"},
+      {date:"64 CE",sort:64,side:"historical",type:"historical",title:"Great Fire of Rome — Nero persecutes Christians",icon:"\u{1F525}",desc:"Tacitus: 'Christus' executed under Pilate. Confirms a sizable Christian community in Rome within 30 years.",source:"Tacitus, Annals XV.44"},
+      {date:"68 CE",sort:68,side:"historical",type:"document",title:"Dead Sea Scrolls hidden as Romans approach",icon:"\u{1F4DC}",desc:"Qumran community hides their scrolls in caves during the Jewish Revolt. Rediscovered 1947. The scrolls contain no references to Jesus — but illuminate the Jewish world Christianity emerged from.",source:"De Vaux, Archaeology and the Dead Sea Scrolls (1973)"},
+      {date:"70 CE",sort:70,side:"historical",type:"alignment",title:"Rome destroys the Second Temple",icon:"\u{1F525}",desc:"Arch of Titus depicts soldiers carrying the Temple menorah. Jesus' prediction (Mark 13:2) is a major discussion point in Gospel dating.",source:"Josephus, War V–VI; Arch of Titus"},
+      {date:"c. 70–100 CE",sort:75,side:"biblical",type:"biblical",title:"Gospels composed",icon:"\u{1F4D6}",desc:"Mark c. 65–75, Matthew & Luke c. 80–90, John c. 90–100 CE.",source:"Brown, Introduction to the NT (1997)"},
+      {date:"73 CE",sort:73,side:"historical",type:"historical",title:"Fall of Masada",icon:"\u{1F3F0}",desc:"Last Jewish holdout falls. Yadin's excavations (1963–65) confirmed much of Josephus' account.",source:"Josephus, War VII; Yadin, Masada (1966)"},
+      {date:"c. 93 CE",sort:93,side:"historical",type:"document",title:"Josephus references Jesus twice",icon:"\u{1F4DC}",desc:"Testimonium Flavianum (Ant. XVIII.3.3): authentic core accepted. James passage (Ant. XX.9.1): virtually uncontested. Together, the strongest non-Christian Jewish attestation of Jesus.",source:"Josephus, Ant. XVIII.3.3, XX.9.1; Meier, A Marginal Jew (1991)"},
+      {date:"c. 95 CE",sort:95,side:"biblical",type:"biblical",title:"Book of Revelation written",icon:"\u{1F4D6}",desc:"Written on Patmos during Domitian's reign. The seven churches reference real cities with well-known archaeology.",source:"Revelation 1–22; Hemer, Letters to the Seven Churches (1986)"},
+      {date:"c. 110 CE",sort:110,side:"historical",type:"document",title:"Pliny writes to Trajan about Christians",icon:"\u{1F4DC}",desc:"Roman governor reports Christians sing hymns 'to Christ as to a god.' Confirms established worship ~80 years after the crucifixion.",source:"Pliny, Epistulae X.96"},
+    ]
+  }
+];
+
+// Count & stats
+let counts={biblical:0,historical:0,alignment:0,document:0};
+DATA.forEach(era=>era.events.forEach(e=>{if(counts[e.type]!==undefined)counts[e.type]++}));
+const totalBiblical=counts.biblical+counts.alignment;
+const pct=Math.round((counts.alignment/totalBiblical)*100);
+const greenW=pct;
+const brownW=100-pct;
+document.getElementById('stats-bar').innerHTML=`
+  <div class="stats-panel">
+    <div class="stats-headline">
+      <div class="big-pct">${totalBiblical}</div>
+      <div class="big-label">Biblical Claims Tracked</div>
+      <div class="big-sub">${counts.alignment} corroborated by historical documents &bull; 0 disproven</div>
+    </div>
+    <div class="corr-bar-wrap">
+      <div class="corr-bar">
+        <div class="bar-green" style="width:${greenW}%"></div>
+        <div class="bar-brown" style="left:${greenW}%;width:${brownW}%"></div>
+      </div>
+      <div class="corr-bar-labels">
+        <span>\u2705 ${counts.alignment} corroborated</span>
+        <span>\u23F3 ${counts.biblical} awaiting corroboration</span>
+      </div>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num" style="color:var(--align)">${counts.alignment}</div><div class="stat-label">Corroborated</div></div>
+      <div class="stat"><div class="stat-num" style="color:var(--biblical)">${counts.biblical}</div><div class="stat-label">Awaiting</div></div>
+      <div class="stat"><div class="stat-num" style="color:var(--document)">${counts.document}</div><div class="stat-label">Key documents</div></div>
+      <div class="stat"><div class="stat-num" style="color:#c0392b">0</div><div class="stat-label">Disproven</div></div>
+    </div>
+  </div>
+`;
+
+// Build timeline
+const container=document.getElementById('timeline');
+const typeLabels={alignment:'\u2194 Corroborated',biblical:'\uD83D\uDCD6 Biblical',historical:'\uD83C\uDFDB Historical',document:'\uD83D\uDCDC Document'};
+
+DATA.forEach(eraData=>{
+  const section=document.createElement('div');
+  section.className='era-section';
+  section.innerHTML=`<div class="era-header">
+    <span class="era-icon">${eraData.eraIcon}</span>
+    <span class="era-badge" style="background:${eraData.eraColor}">${eraData.era.replace(/-/g,' ')}</span>
+    <h2>${eraData.eraLabel}</h2>
+    <span class="era-dates">${eraData.eraDates}</span>
+  </div>`;
+
+  eraData.events.forEach(ev=>{
+    const row=document.createElement('div');
+    row.className='event-row';
+    row.dataset.type=ev.type;
+    const dateEl=`<div class="event-date">${ev.date}</div>`;
+    const card=`<div class="event-card ${ev.type}" onclick="this.classList.toggle('expanded')">
+      <div class="event-type-tag">${typeLabels[ev.type]||ev.type}</div>
+      <div class="event-title"><span class="ev-icon">${ev.icon||''}</span>${ev.title}</div>
+      <div class="event-desc">${ev.desc}</div>
+      <div class="source-note">Source: ${ev.source}</div>
+    </div>`;
+    const dot=`<div class="center-line"><div class="center-dot ${ev.type}"></div></div>`;
+    if(ev.side==='biblical'||(ev.type==='alignment'&&ev.side!=='historical')){
+      row.innerHTML=dateEl+card+dot+'<div class="placeholder"></div>';
+    }else{
+      row.innerHTML=dateEl+'<div class="placeholder"></div>'+dot+card;
+    }
+    section.appendChild(row);
+  });
+  container.appendChild(section);
+});
+
+// Filters
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.event-row').forEach(row=>{
+      if(f==='all')row.classList.remove('hidden');
+      else row.classList.toggle('hidden',row.dataset.type!==f);
+    });
+  });
+});
+</script>
+</body>
+</html>
