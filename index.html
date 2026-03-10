@@ -155,6 +155,33 @@
   .summary-box{padding:18px 26px;background:#f9f7f4;border-top:1px solid var(--border);font-size:.82rem;color:var(--text-muted);line-height:1.6}
   .summary-box strong{color:var(--text)}
 
+  /* WHAT DOES THIS ALL MEAN */
+  .what-it-means{max-width:900px;margin:48px auto;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .what-it-means-header{background:linear-gradient(135deg,#2C4A5C,#3B5E3A);color:#FAF8F5;padding:22px 26px}
+  .what-it-means-header h2{font-family:'EB Garamond',serif;font-size:1.4rem;margin-bottom:3px}
+  .what-it-means-header p{font-size:.82rem;opacity:.8}
+  .what-it-means-content{padding:28px 32px;font-size:.88rem;color:var(--text);line-height:1.75}
+  .what-it-means-content p{margin-bottom:16px}
+  .what-it-means-content p:last-child{margin-bottom:0}
+  .scripture-quote{border-left:3px solid var(--align);background:var(--align-light);padding:14px 20px;margin:20px 0;border-radius:0 8px 8px 0;font-family:'EB Garamond',serif;font-size:1rem;line-height:1.7;color:var(--text)}
+  .scripture-ref{display:block;margin-top:6px;font-size:.78rem;color:var(--text-muted);font-family:'Inter',sans-serif;font-weight:500}
+
+  /* I BELIEVE WALL */
+  .believe-section{border-top:1px solid var(--border);padding:28px 32px;text-align:center}
+  .believe-section h3{font-family:'EB Garamond',serif;font-size:1.2rem;margin-bottom:6px;color:var(--text)}
+  .believe-section .believe-subtitle{font-size:.82rem;color:var(--text-muted);margin-bottom:20px}
+  .believe-form{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:24px}
+  .believe-form input{padding:10px 16px;border:1px solid var(--border);border-radius:8px;font-size:.88rem;font-family:'Inter',sans-serif;width:220px;outline:none;transition:border-color .2s}
+  .believe-form input:focus{border-color:var(--align)}
+  .believe-btn{padding:10px 24px;background:linear-gradient(135deg,#3B5E3A,#2C4A5C);color:#FAF8F5;border:none;border-radius:8px;font-size:.88rem;font-family:'Inter',sans-serif;font-weight:600;cursor:pointer;transition:opacity .2s}
+  .believe-btn:hover{opacity:.9}
+  .believe-btn:disabled{opacity:.5;cursor:not-allowed}
+  .believe-msg{font-size:.82rem;color:var(--align);font-weight:500;margin-bottom:16px;display:none}
+  .believe-wall{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:16px;border-top:1px solid var(--border)}
+  .believe-wall:empty{border-top:none;padding-top:0}
+  .believe-name{background:var(--align-light);color:var(--text);padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:500;border:1px solid #d4e8c4}
+  .believe-count{font-size:.78rem;color:var(--text-muted);margin-bottom:12px}
+
   footer{text-align:center;padding:28px 24px;font-size:.76rem;color:var(--text-muted);border-top:1px solid var(--border);max-width:780px;margin:0 auto;line-height:1.6}
 
   .mobile-only{display:none}
@@ -182,8 +209,15 @@
     .stats-headline .big-pct{font-size:2.6rem}
     .corr-bar-wrap{padding:8px 20px 16px}
     .stats-row{gap:12px;padding:10px 16px 14px}
+    .what-it-means-content{padding:20px 18px;font-size:.84rem}
+    .scripture-quote{padding:12px 16px;font-size:.94rem}
+    .believe-section{padding:20px 18px}
+    .believe-form input{width:100%}
+    .believe-form{flex-direction:column}
   }
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 </head>
 <body>
 
@@ -435,6 +469,66 @@
   </div>
 </div>
 
+<!-- WHAT DOES THIS ALL MEAN -->
+<div class="what-it-means">
+  <div class="what-it-means-header">
+    <h2>&#x1F4AD; What Does This All Mean?</h2>
+    <p>The evidence is out there — now it's personal</p>
+  </div>
+  <div class="what-it-means-content">
+    <p>So here's the thing. You just scrolled through over a hundred events — archaeological discoveries, ancient documents, and independent sources from people who had every reason <em>not</em> to confirm the biblical record. And yet, time after time, the evidence lines up.</p>
+
+    <p>The places are real. The people are real. The events described by historians, carved into stone, and buried in the ground match what the Bible has been saying for thousands of years. This isn't blind faith — it's a Christ whose story left fingerprints all over history.</p>
+
+    <p>And the biggest claim of all? That Jesus of Nazareth — a real person, confirmed by Roman, Jewish, and pagan sources — was crucified under Pontius Pilate, buried, and then his followers were willing to die claiming he rose from the dead. Not decades later when legends could form, but immediately. Within years.</p>
+
+    <div class="scripture-quote">
+      "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
+      <span class="scripture-ref">— John 3:16</span>
+    </div>
+
+    <p>That's the whole thing right there. God loved us enough to send his Son. Jesus didn't just come to be a good teacher or a moral example — he came to rescue us. Every one of us has sinned and fallen short, and the cost of that is death. But Jesus paid that price himself.</p>
+
+    <div class="scripture-quote">
+      "For the wages of sin is death; but the gift of God is eternal life through Jesus Christ our Lord."
+      <span class="scripture-ref">— Romans 6:23</span>
+    </div>
+
+    <p>Jesus made it clear — he didn't claim to be <em>one</em> way to God. He said he was <em>the</em> way:</p>
+
+    <div class="scripture-quote">
+      "I am the way, the truth, and the life: no man cometh unto the Father, but by me."
+      <span class="scripture-ref">— John 14:6</span>
+    </div>
+
+    <p>That's a bold claim. But if the evidence backs up everything else he said and did — his life, his death, his resurrection — then maybe this claim deserves serious consideration too.</p>
+
+    <p>And the good news? It's not complicated. You don't need a theology degree. You don't need to be perfect first. You just need to believe and decide:</p>
+
+    <div class="scripture-quote">
+      "That if thou shalt confess with thy mouth the Lord Jesus, and shalt believe in thine heart that God hath raised him from the dead, thou shalt be saved."
+      <span class="scripture-ref">— Romans 10:9</span>
+    </div>
+
+    <p>That's it. Believe that Jesus is who he said he is. Believe that he really did rise from the dead — something the evidence strongly supports. And confess him as your Lord. That's the door to eternal life.</p>
+
+    <p>The history has been laid out. The archaeology has been dug up. The ancient sources have been read. The evidence doesn't ask you to turn off your brain — it asks you to make a decision.</p>
+
+    <p><strong>What will you do with Jesus?</strong></p>
+  </div>
+  <div class="believe-section">
+    <h3>I Believe</h3>
+    <p class="believe-subtitle">If you've made the decision to trust in Jesus, we'd love to know. Add your name to the wall.</p>
+    <div class="believe-form">
+      <input type="text" id="believe-name" placeholder="Your first name" maxlength="40" autocomplete="off">
+      <button class="believe-btn" id="believe-btn" onclick="submitBelief()">I Believe</button>
+    </div>
+    <div class="believe-msg" id="believe-msg"></div>
+    <div class="believe-count" id="believe-count"></div>
+    <div class="believe-wall" id="believe-wall"></div>
+  </div>
+</div>
+
 <footer>
   Sources include Kitchen, Finkelstein, Mazar, Josephus, Tacitus, Meier, Habermas, Brown, Hemer, VanderKam, and others. All dates follow mainstream scholarly consensus where available. Where biblical and scholarly chronologies diverge, both perspectives are noted. Click individual events for source citations.
 </footer>
@@ -646,6 +740,108 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
     });
   });
 });
+
+// === I BELIEVE — Firebase ===
+const firebaseConfig = {
+  apiKey: "AIzaSyDD4i9mDWB_Jco2Hg65oqYOtCy0btGLb0A",
+  authDomain: "biblevshistory.firebaseapp.com",
+  databaseURL: "https://biblevshistory-default-rtdb.firebaseio.com",
+  projectId: "biblevshistory",
+  storageBucket: "biblevshistory.firebasestorage.app",
+  messagingSenderId: "422845497075",
+  appId: "1:422845497075:web:ce6e43ec5332e96e888186",
+  measurementId: "G-9KR5V20CED"
+};
+
+let db;
+const firebaseReady = firebaseConfig.apiKey !== 'YOUR_API_KEY';
+if (firebaseReady) {
+  try {
+    firebase.initializeApp(firebaseConfig);
+    db = firebase.database();
+    loadBeliefs();
+  } catch(e) {
+    db = null;
+    console.log('Firebase error:', e.message);
+  }
+}
+
+function loadBeliefs() {
+  if (!db) return;
+  db.ref('beliefs').orderByChild('timestamp').on('value', snap => {
+    const wall = document.getElementById('believe-wall');
+    const countEl = document.getElementById('believe-count');
+    wall.innerHTML = '';
+    let count = 0;
+    const names = [];
+    snap.forEach(child => {
+      names.push(child.val().name);
+      count++;
+    });
+    names.forEach(name => {
+      const tag = document.createElement('span');
+      tag.className = 'believe-name';
+      tag.textContent = name;
+      wall.appendChild(tag);
+    });
+    if (count > 0) {
+      countEl.textContent = count + (count === 1 ? ' person has' : ' people have') + ' declared their faith';
+    }
+  });
+}
+
+function submitBelief() {
+  const input = document.getElementById('believe-name');
+  const btn = document.getElementById('believe-btn');
+  const msg = document.getElementById('believe-msg');
+  const name = input.value.trim();
+
+  if (!name) { input.focus(); return; }
+  if (name.length > 40) return;
+
+  // Sanitize — only allow letters, spaces, hyphens, apostrophes
+  const clean = name.replace(/[^a-zA-Z\s\-'À-ÿ]/g, '').trim();
+  if (!clean) { input.focus(); return; }
+
+  btn.disabled = true;
+
+  if (!db) {
+    // No Firebase — show message anyway
+    msg.style.display = 'block';
+    msg.textContent = 'Welcome to the family, ' + clean + '! (Connect Firebase to save your name for others to see)';
+    input.value = '';
+    btn.disabled = false;
+    return;
+  }
+
+  db.ref('beliefs').push({
+    name: clean,
+    timestamp: firebase.database.ServerValue.TIMESTAMP
+  }).then(() => {
+    msg.style.display = 'block';
+    msg.textContent = 'Welcome to the family, ' + clean + '!';
+    input.value = '';
+    btn.disabled = false;
+    // Store in localStorage so they can't spam
+    localStorage.setItem('believed', 'true');
+  }).catch(() => {
+    msg.style.display = 'block';
+    msg.textContent = 'Something went wrong — please try again.';
+    btn.disabled = false;
+  });
+}
+
+// Allow Enter key to submit
+document.getElementById('believe-name').addEventListener('keydown', e => {
+  if (e.key === 'Enter') submitBelief();
+});
+
+// If already submitted, show a note
+if (localStorage.getItem('believed')) {
+  const msg = document.getElementById('believe-msg');
+  msg.style.display = 'block';
+  msg.textContent = 'You\'ve already added your name — welcome to the family!';
+}
 </script>
 </body>
 </html>
