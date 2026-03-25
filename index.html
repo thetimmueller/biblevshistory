@@ -155,6 +155,32 @@
   .summary-box{padding:18px 26px;background:#f9f7f4;border-top:1px solid var(--border);font-size:.82rem;color:var(--text-muted);line-height:1.6}
   .summary-box strong{color:var(--text)}
 
+  /* NEWS TICKER */
+  .news-ticker{background:#2D2A26;color:#FAF8F5;overflow:hidden;white-space:nowrap;font-size:.78rem;display:none;border-bottom:1px solid #44403a}
+  .news-ticker-inner{display:inline-flex;align-items:center;animation:ticker 30s linear infinite;padding:8px 0}
+  .news-ticker-inner:hover{animation-play-state:paused}
+  .news-ticker-label{background:var(--biblical);color:#fff;padding:2px 10px;border-radius:3px;font-weight:600;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;margin-right:18px;flex-shrink:0}
+  .news-ticker-item{margin-right:32px;flex-shrink:0}
+  .news-ticker-item a{color:#FAF8F5;text-decoration:none;transition:color .2s}
+  .news-ticker-item a:hover{color:var(--biblical);text-decoration:underline}
+  .news-ticker-sep{color:var(--biblical);margin-right:32px;flex-shrink:0;font-weight:700}
+  @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  /* NEWS FLOATING BUTTON */
+  .news-fab{position:fixed;bottom:24px;right:24px;z-index:200;display:none}
+  .news-fab-btn{width:48px;height:48px;border-radius:50%;background:#2D2A26;color:#FAF8F5;border:none;font-size:1.2rem;cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.25);transition:transform .2s,background .2s;display:flex;align-items:center;justify-content:center}
+  .news-fab-btn:hover{transform:scale(1.1);background:#44403a}
+  .news-fab-badge{position:absolute;top:-4px;right:-4px;background:#c0392b;color:#fff;font-size:.65rem;font-weight:700;min-width:18px;height:18px;border-radius:9px;display:flex;align-items:center;justify-content:center;padding:0 5px;border:2px solid #fff}
+  .news-fab-panel{position:absolute;bottom:58px;right:0;width:320px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,.15);display:none;overflow:hidden}
+  .news-fab-panel.open{display:block}
+  .news-fab-panel-header{background:linear-gradient(135deg,#3B2F26,#5C4A3A);color:#FAF8F5;padding:14px 16px;font-family:'Libre Baskerville',serif;font-size:.9rem}
+  .news-fab-item{padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:inherit;display:block;transition:background .2s}
+  .news-fab-item:last-child{border-bottom:none}
+  .news-fab-item:hover{background:#faf6f1}
+  .news-fab-item h5{font-size:.8rem;font-weight:600;margin-bottom:2px;line-height:1.3}
+  .news-fab-item .fab-source{font-size:.65rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--historical)}
+  .news-fab-item .fab-date{font-size:.68rem;color:var(--text-muted)}
+
   /* NEWS SECTION */
   .news-section{max-width:900px;margin:48px auto 20px;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
   .news-header{background:linear-gradient(135deg,#3B2F26,#5C4A3A);color:#FAF8F5;padding:22px 26px}
@@ -244,12 +270,20 @@
     .news-card{border-right:none}
     .news-card:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
     .news-card:last-child{border-bottom:none}
+    .news-fab-panel{width:280px;right:-8px}
+    .news-fab{bottom:16px;right:16px}
+    .news-ticker{font-size:.72rem}
   }
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
 </head>
 <body>
+
+<!-- NEWS TICKER -->
+<div class="news-ticker" id="news-ticker">
+  <div class="news-ticker-inner" id="news-ticker-inner"></div>
+</div>
 
 <div class="hero">
   <span class="hero-icon">&#x1F4DC;</span>
@@ -931,7 +965,7 @@ if (localStorage.getItem('believed')) {
   msg.textContent = 'You\'ve already added your name — welcome to the family!';
 }
 
-// === NEWS SECTION ===
+// === NEWS: FETCH + POPULATE TICKER, FAB, AND SECTION ===
 (async function fetchNews() {
   const feeds = [
     {url:'https://biblearchaeologyreport.com/feed/', source:'Bible Archaeology Report'},
@@ -940,7 +974,7 @@ if (localStorage.getItem('believed')) {
   const proxy = 'https://api.allorigins.win/get?url=';
   const articles = [];
   try {
-    const results = await Promise.allSettled(
+    await Promise.allSettled(
       feeds.map(async f => {
         const resp = await fetch(proxy + encodeURIComponent(f.url));
         const data = await resp.json();
@@ -950,20 +984,17 @@ if (localStorage.getItem('believed')) {
           xml = new TextDecoder('utf-8').decode(bytes);
         }
         const doc = new DOMParser().parseFromString(xml, 'text/xml');
-        const items = doc.querySelectorAll('item');
-        items.forEach((item, i) => {
+        doc.querySelectorAll('item').forEach((item, i) => {
           if (i >= 3) return;
           const title = item.querySelector('title')?.textContent || '';
           const link = item.querySelector('link')?.textContent || '';
           const pubDate = item.querySelector('pubDate')?.textContent || '';
           const desc = item.querySelector('description')?.textContent || '';
-          // extract thumbnail from media:thumbnail, media:content, or img in content
           const mediaTh = item.getElementsByTagName('media:thumbnail')[0]?.getAttribute('url');
           const mediaCo = item.getElementsByTagName('media:content')[0]?.getAttribute('url');
           const encoded = item.getElementsByTagName('content:encoded')[0]?.textContent || desc;
           const imgMatch = encoded.match(/<img[^>]+src=["']([^"']+)["']/);
           const thumb = mediaTh || mediaCo || (imgMatch ? imgMatch[1] : '');
-          // strip HTML tags for excerpt
           const tmp = document.createElement('div');
           tmp.innerHTML = desc;
           const excerpt = tmp.textContent.trim().slice(0, 160) + '…';
@@ -973,6 +1004,40 @@ if (localStorage.getItem('believed')) {
     );
     if (articles.length === 0) return;
     articles.sort((a, b) => b.pubDate - a.pubDate);
+
+    // --- TICKER ---
+    const ticker = document.getElementById('news-ticker-inner');
+    let tickerHTML = '<span class="news-ticker-label">Latest</span>';
+    articles.forEach((a, i) => {
+      tickerHTML += `<span class="news-ticker-item"><a href="${a.link}" target="_blank" rel="noopener">${a.title}</a> <span style="font-size:.68rem;opacity:.6">(${a.source})</span></span>`;
+      if (i < articles.length - 1) tickerHTML += '<span class="news-ticker-sep">•</span>';
+    });
+    // duplicate for seamless loop
+    ticker.innerHTML = tickerHTML + tickerHTML;
+    document.getElementById('news-ticker').style.display = 'block';
+
+    // --- FLOATING BUTTON ---
+    const fabList = document.getElementById('news-fab-list');
+    articles.slice(0, 4).forEach(a => {
+      const dateStr = a.pubDate.toLocaleDateString('en-US', {year:'numeric', month:'short', day:'numeric'});
+      fabList.innerHTML += `<a class="news-fab-item" href="${a.link}" target="_blank" rel="noopener">
+        <div class="fab-source">${a.source}</div>
+        <h5>${a.title}</h5>
+        <div class="fab-date">${dateStr}</div>
+      </a>`;
+    });
+    document.getElementById('news-fab-badge').textContent = Math.min(articles.length, 4);
+    document.getElementById('news-fab').style.display = 'block';
+    document.getElementById('news-fab-btn').addEventListener('click', () => {
+      document.getElementById('news-fab-panel').classList.toggle('open');
+    });
+    document.addEventListener('click', e => {
+      if (!document.getElementById('news-fab').contains(e.target)) {
+        document.getElementById('news-fab-panel').classList.remove('open');
+      }
+    });
+
+    // --- NEWS SECTION ---
     const grid = document.getElementById('news-grid');
     articles.slice(0, 4).forEach(a => {
       const dateStr = a.pubDate.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
@@ -985,8 +1050,17 @@ if (localStorage.getItem('believed')) {
       </a>`;
     });
     document.getElementById('news-section').style.display = 'block';
-  } catch(e) { /* section stays hidden on error */ }
+  } catch(e) { /* all news components stay hidden on error */ }
 })();
 </script>
+
+<!-- NEWS FLOATING BUTTON -->
+<div class="news-fab" id="news-fab">
+  <div class="news-fab-panel" id="news-fab-panel">
+    <div class="news-fab-panel-header">Latest Discoveries</div>
+    <div id="news-fab-list"></div>
+  </div>
+  <button class="news-fab-btn" id="news-fab-btn" title="Latest archaeology news">&#x1F4F0;<span class="news-fab-badge" id="news-fab-badge"></span></button>
+</div>
 </body>
 </html>
