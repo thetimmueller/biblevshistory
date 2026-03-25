@@ -155,6 +155,25 @@
   .summary-box{padding:18px 26px;background:#f9f7f4;border-top:1px solid var(--border);font-size:.82rem;color:var(--text-muted);line-height:1.6}
   .summary-box strong{color:var(--text)}
 
+  /* NEWS SECTION */
+  .news-section{max-width:900px;margin:48px auto 20px;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden}
+  .news-header{background:linear-gradient(135deg,#3B2F26,#5C4A3A);color:#FAF8F5;padding:22px 26px}
+  .news-header h2{font-family:'Libre Baskerville',serif;font-size:1.4rem;margin-bottom:3px}
+  .news-header p{font-size:.82rem;opacity:.8}
+  .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .news-card{padding:18px 20px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);cursor:pointer;transition:background .2s;text-decoration:none;color:inherit;display:block}
+  .news-card:hover{background:#faf6f1}
+  .news-card:nth-child(2n){border-right:none}
+  .news-card:nth-last-child(-n+2){border-bottom:none}
+  .news-thumb{width:100%;height:140px;object-fit:cover;border-radius:6px;margin-bottom:10px;background:var(--bg)}
+  .news-source{font-size:.66rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--historical);margin-bottom:4px}
+  .news-card h4{font-size:.88rem;font-weight:600;margin-bottom:4px;line-height:1.35}
+  .news-date{font-size:.7rem;color:var(--text-muted);margin-bottom:6px}
+  .news-excerpt{font-size:.78rem;color:var(--text-muted);line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .news-attribution{padding:12px 20px;background:#f9f7f4;border-top:1px solid var(--border);font-size:.72rem;color:var(--text-muted);text-align:center}
+  .news-attribution a{color:var(--historical);text-decoration:none}
+  .news-attribution a:hover{text-decoration:underline}
+
   /* WHAT DOES THIS ALL MEAN */
   .what-it-means{max-width:900px;margin:20px auto 48px;background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden}
   .what-it-means-header{background:#f9f7f4;border-bottom:1px solid var(--border);padding:24px 32px;border-top:3px solid var(--biblical)}
@@ -221,6 +240,10 @@
     .believe-form input{width:100%}
     .believe-form{flex-direction:column}
     .believe-toggle-btn{padding:8px 14px;font-size:.76rem}
+    .news-grid{grid-template-columns:1fr}
+    .news-card{border-right:none}
+    .news-card:nth-last-child(-n+2){border-bottom:1px solid var(--border)}
+    .news-card:last-child{border-bottom:none}
   }
 </style>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -474,6 +497,18 @@
       <strong>Summary:</strong> The crucifixion under Pilate is confirmed by multiple independent non-Christian sources (Tacitus, Josephus, Lucian, Talmud, Pliny, Celsus, and possibly Thallus and Mara bar Serapion). The resurrection claim is attested in a creed dating to within 2–5 years of the event. Key locations and figures have been archaeologically confirmed. Ancient critics acknowledged the events while offering alternative explanations — they did not deny them.
     </div>
   </div>
+
+<!-- NEWS SECTION -->
+<div class="news-section" id="news-section" style="display:none">
+  <div class="news-header">
+    <h2>&#x1F4F0; Latest in Biblical Archaeology</h2>
+    <p>Recent discoveries and research from the field</p>
+  </div>
+  <div class="news-grid" id="news-grid"></div>
+  <div class="news-attribution">
+    Powered by <a href="https://biblearchaeologyreport.com/" target="_blank" rel="noopener">Bible Archaeology Report</a> &amp; <a href="https://www.biblicalarchaeology.org/" target="_blank" rel="noopener">Biblical Archaeology Society</a>
+  </div>
+</div>
 
 <!-- WHAT DOES THIS ALL MEAN -->
 <div class="what-it-means">
@@ -895,6 +930,63 @@ if (localStorage.getItem('believed')) {
   msg.style.display = 'block';
   msg.textContent = 'You\'ve already added your name — welcome to the family!';
 }
+
+// === NEWS SECTION ===
+(async function fetchNews() {
+  const feeds = [
+    {url:'https://biblearchaeologyreport.com/feed/', source:'Bible Archaeology Report'},
+    {url:'https://www.biblicalarchaeology.org/feed/', source:'Biblical Archaeology Society'}
+  ];
+  const proxy = 'https://api.allorigins.win/get?url=';
+  const articles = [];
+  try {
+    const results = await Promise.allSettled(
+      feeds.map(async f => {
+        const resp = await fetch(proxy + encodeURIComponent(f.url));
+        const data = await resp.json();
+        let xml = data.contents;
+        if (xml.startsWith('data:')) {
+          const bytes = Uint8Array.from(atob(xml.split('base64,')[1]), c => c.charCodeAt(0));
+          xml = new TextDecoder('utf-8').decode(bytes);
+        }
+        const doc = new DOMParser().parseFromString(xml, 'text/xml');
+        const items = doc.querySelectorAll('item');
+        items.forEach((item, i) => {
+          if (i >= 3) return;
+          const title = item.querySelector('title')?.textContent || '';
+          const link = item.querySelector('link')?.textContent || '';
+          const pubDate = item.querySelector('pubDate')?.textContent || '';
+          const desc = item.querySelector('description')?.textContent || '';
+          // extract thumbnail from media:thumbnail, media:content, or img in content
+          const mediaTh = item.getElementsByTagName('media:thumbnail')[0]?.getAttribute('url');
+          const mediaCo = item.getElementsByTagName('media:content')[0]?.getAttribute('url');
+          const encoded = item.getElementsByTagName('content:encoded')[0]?.textContent || desc;
+          const imgMatch = encoded.match(/<img[^>]+src=["']([^"']+)["']/);
+          const thumb = mediaTh || mediaCo || (imgMatch ? imgMatch[1] : '');
+          // strip HTML tags for excerpt
+          const tmp = document.createElement('div');
+          tmp.innerHTML = desc;
+          const excerpt = tmp.textContent.trim().slice(0, 160) + '…';
+          articles.push({title, link, pubDate: new Date(pubDate), excerpt, thumb, source: f.source});
+        });
+      })
+    );
+    if (articles.length === 0) return;
+    articles.sort((a, b) => b.pubDate - a.pubDate);
+    const grid = document.getElementById('news-grid');
+    articles.slice(0, 4).forEach(a => {
+      const dateStr = a.pubDate.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'});
+      grid.innerHTML += `<a class="news-card" href="${a.link}" target="_blank" rel="noopener">
+        ${a.thumb ? `<img class="news-thumb" src="${a.thumb}" alt="" loading="lazy" onerror="this.remove()">` : ''}
+        <div class="news-source">${a.source}</div>
+        <h4>${a.title}</h4>
+        <div class="news-date">${dateStr}</div>
+        <div class="news-excerpt">${a.excerpt}</div>
+      </a>`;
+    });
+    document.getElementById('news-section').style.display = 'block';
+  } catch(e) { /* section stays hidden on error */ }
+})();
 </script>
 </body>
 </html>
