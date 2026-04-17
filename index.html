@@ -55,7 +55,7 @@
   }
   body{font-family:'EB Garamond','Georgia',serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:17px}
   a{color:var(--ink)}
-  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:.15em;text-transform:uppercase;font-size:10px;font-weight:500;color:var(--text-muted)}
+  .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:.15em;text-transform:uppercase;font-size:11px;font-weight:500;color:var(--text-muted)}
   .serif-display{font-family:'Playfair Display',serif}
 
   /* BRAND BAR */
@@ -73,8 +73,12 @@
   .filter-btn.active{color:#2a2a2a}
   .filter-btn.active::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:1px;background:#2a2a2a}
   .legend-bar{display:flex;justify-content:center;gap:28px;padding:10px 24px 14px;flex-wrap:wrap;background:#faf8f5;border-top:1px solid #f0ece4}
-  .legend-item{display:flex;align-items:center;gap:8px;font-family:'Playfair Display',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#666;font-weight:400}
+  .legend-item{display:flex;align-items:center;gap:8px;font-family:'Playfair Display',serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#666;font-weight:400}
   .legend-dot{width:7px;height:7px;border-radius:50%}
+  .jump-to{position:relative;flex:0 0 auto;width:130px}
+  .jump-to select{font-family:'Playfair Display',serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#2a2a2a;font-weight:400;background:transparent;border:1px solid #2a2a2a;padding:5px 28px 5px 14px;cursor:pointer;border-radius:0;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M1 3l4 4 4-4' stroke='%232a2a2a' stroke-width='1' fill='none'/></svg>");background-repeat:no-repeat;background-position:right 10px center;outline:none;transition:background-color .2s;width:100%}
+  .jump-to select:hover{background-color:#fff}
+  .jump-to select:focus{border-color:#000}
 
   /* CINEMATIC HERO — RH style */
   .hero{position:relative;height:84vh;min-height:560px;max-height:780px;overflow:hidden;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center}
@@ -101,7 +105,7 @@
   .corr-bar-fill{height:100%;border-radius:0;display:flex;align-items:center;transition:width .8s ease}
   .corr-bar .bar-green{background:#2a2a2a;position:absolute;left:0;top:0;bottom:0;border-radius:0}
   .corr-bar .bar-brown{background:#d4c79f;position:absolute;top:0;bottom:0;border-radius:0}
-  .corr-bar-labels{display:flex;justify-content:space-between;max-width:560px;margin:12px auto 0;font-family:'Playfair Display',serif;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#666}
+  .corr-bar-labels{display:flex;justify-content:space-between;max-width:560px;margin:12px auto 0;font-family:'Playfair Display',serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#666}
   .stats-row{display:flex;justify-content:center;gap:80px;padding:28px 24px 0;border-top:1px solid #e8e8e8;flex-wrap:wrap}
   .stat{text-align:center;min-width:90px}
   .stat-num{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:400;font-style:italic;color:#2a2a2a;line-height:1}
@@ -132,13 +136,13 @@
   .center-dot{width:8px;height:8px;border-radius:50%;position:relative;z-index:2;margin-top:22px;border:2px solid #fff;box-shadow:0 0 0 1px #d4c79f}
   .center-dot.biblical{background:var(--biblical)}.center-dot.historical{background:var(--historical)}.center-dot.alignment{background:var(--align)}.center-dot.document{background:var(--document)}
   .ev-icon{float:left;font-size:1.1rem;margin-right:10px;margin-top:0;opacity:.75}
-  .event-title{font-family:'Playfair Display',serif;font-weight:400;font-size:1.05rem;margin-bottom:3px;color:#2a2a2a;letter-spacing:-.005em;line-height:1.25}
-  .event-type-tag{font-family:'Playfair Display',serif;font-size:10px;font-weight:400;text-transform:uppercase;letter-spacing:.28em;margin-bottom:6px}
+  .event-title{font-family:'Playfair Display',serif;font-weight:400;font-size:1.15rem;margin-bottom:3px;color:#2a2a2a;letter-spacing:-.005em;line-height:1.25}
+  .event-type-tag{font-family:'Playfair Display',serif;font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.24em;margin-bottom:6px}
   .event-card.biblical .event-type-tag{color:var(--biblical)}
   .event-card.historical .event-type-tag{color:var(--historical)}
   .event-card.alignment .event-type-tag{color:var(--align)}
   .event-card.document .event-type-tag{color:var(--document)}
-  .event-desc{font-family:'EB Garamond',serif;font-size:.98rem;color:#444;line-height:1.55;display:none}
+  .event-desc{font-family:'EB Garamond',serif;font-size:1.05rem;color:#444;line-height:1.6;display:none}
   .event-card.expanded .event-desc{display:block;margin-top:10px}
   .event-card .source-note{font-family:'EB Garamond',serif;font-size:.82rem;font-style:italic;color:#888;margin-top:10px;display:none;padding-top:10px;border-top:1px solid rgba(0,0,0,.07)}
   .event-card.expanded .source-note{display:block}
@@ -152,10 +156,10 @@
   .artifact-card{padding:28px 24px;border-bottom:1px solid #e8e8e8;border-right:1px solid #e8e8e8;cursor:pointer;transition:background .3s;background:#fff}
   .artifact-card:hover{background:#faf8f5}
   .artifact-icon{font-size:1.8rem;margin-bottom:14px;opacity:.7}
-  .artifact-card h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:400;margin-bottom:6px;color:#2a2a2a;letter-spacing:-.005em}
+  .artifact-card h4{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:6px;color:#2a2a2a;letter-spacing:-.005em}
   .artifact-card .artifact-date{font-family:'Playfair Display',serif;font-size:11px;color:#888;font-weight:400;margin-bottom:4px;letter-spacing:.2em;text-transform:uppercase}
   .artifact-card .artifact-loc{font-family:'Playfair Display',serif;font-size:11px;color:var(--historical);font-weight:400;letter-spacing:.2em;text-transform:uppercase;font-style:italic}
-  .artifact-card p{font-family:'EB Garamond',serif;font-size:.95rem;color:#555;line-height:1.5;display:none;margin-top:12px}
+  .artifact-card p{font-family:'EB Garamond',serif;font-size:1.02rem;color:#555;line-height:1.6;display:none;margin-top:12px}
   .artifact-card.expanded p{display:block}
 
   /* DEEP DIVE — editorial */
@@ -169,23 +173,23 @@
   .evidence-col h3{font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:24px;display:flex;align-items:center;gap:10px;font-style:italic;font-weight:400;letter-spacing:.02em;color:#2a2a2a;padding-bottom:14px;border-bottom:1px solid #e8e8e8}
   .evidence-item{padding:14px 16px;border-radius:0;margin-bottom:2px;cursor:pointer;transition:all .25s;border-left:2px solid #e8e8e8;background:#faf8f5}
   .evidence-item:hover{background:#f4f0e8;border-left-color:#8B5E3C}
-  .evidence-item .ev-title{font-family:'Playfair Display',serif;font-weight:400;font-size:1rem;color:#2a2a2a;line-height:1.3;letter-spacing:-.005em}
+  .evidence-item .ev-title{font-family:'Playfair Display',serif;font-weight:400;font-size:1.1rem;color:#2a2a2a;line-height:1.3;letter-spacing:-.005em}
   .evidence-item .ev-date{font-family:'Playfair Display',serif;font-size:11px;color:#888;font-weight:400;letter-spacing:.2em;text-transform:uppercase;margin-bottom:4px}
-  .evidence-item .ev-detail{font-family:'EB Garamond',serif;font-size:.95rem;color:#555;line-height:1.55;margin-top:10px;display:none}
+  .evidence-item .ev-detail{font-family:'EB Garamond',serif;font-size:1.02rem;color:#555;line-height:1.6;margin-top:10px;display:none}
   .evidence-item.expanded .ev-detail{display:block}
-  .ev-verdict{display:none;font-family:'Playfair Display',serif;font-size:10px;font-weight:400;padding:3px 10px;border-radius:0;margin-top:10px;letter-spacing:.22em;text-transform:uppercase;font-style:italic}
+  .ev-verdict{display:none;font-family:'Playfair Display',serif;font-size:11px;font-weight:400;padding:3px 10px;border-radius:0;margin-top:10px;letter-spacing:.22em;text-transform:uppercase;font-style:italic}
   .evidence-item.expanded .ev-verdict{display:inline-block}
   .verdict-strong{background:none;color:#5B7A3A;border:1px solid #5B7A3A}
   .verdict-moderate{background:none;color:#B8860B;border:1px solid #B8860B}
   .verdict-debated{background:none;color:#a04040;border:1px solid #a04040}
-  .summary-box{padding:32px 36px;background:#faf8f5;border-top:1px solid #e8e8e8;font-family:'EB Garamond',serif;font-size:1rem;color:#555;line-height:1.65;font-style:italic;text-align:center}
+  .summary-box{padding:32px 36px;background:#faf8f5;border-top:1px solid #e8e8e8;font-family:'EB Garamond',serif;font-size:1.08rem;color:#555;line-height:1.7;font-style:italic;text-align:center}
   .summary-box strong{color:#2a2a2a;font-weight:600;font-style:normal}
 
   /* NEWS TICKER — editorial */
   .news-ticker{background:#1a1a1a;color:#f7f2e7;overflow:hidden;white-space:nowrap;font-family:'EB Garamond',serif;font-size:.88rem;display:none;border-bottom:none}
   .news-ticker-inner{display:inline-flex;align-items:center;animation:ticker 30s linear infinite;padding:10px 0}
   .news-ticker-inner:hover{animation-play-state:paused}
-  .news-ticker-label{background:none;color:#d4a83a;padding:0 20px 0 0;border-radius:0;font-family:'Playfair Display',serif;font-weight:400;font-size:10px;letter-spacing:.3em;text-transform:uppercase;margin-right:18px;flex-shrink:0;border-right:1px solid rgba(255,255,255,.15);font-style:italic}
+  .news-ticker-label{background:none;color:#d4a83a;padding:0 20px 0 0;border-radius:0;font-family:'Playfair Display',serif;font-weight:400;font-size:11px;letter-spacing:.3em;text-transform:uppercase;margin-right:18px;flex-shrink:0;border-right:1px solid rgba(255,255,255,.15);font-style:italic}
   .news-ticker-item{margin-right:36px;flex-shrink:0;font-style:italic}
   .news-ticker-item a{color:#f7f2e7;text-decoration:none;transition:color .2s}
   .news-ticker-item a:hover{color:#d4a83a;text-decoration:none}
@@ -204,8 +208,8 @@
   .news-fab-item:last-child{border-bottom:none}
   .news-fab-item:hover{background:#faf8f5}
   .news-fab-item h5{font-family:'Playfair Display',serif;font-size:.92rem;font-weight:400;margin-bottom:6px;line-height:1.3;color:#2a2a2a;letter-spacing:-.005em}
-  .news-fab-item .fab-source{font-family:'Playfair Display',serif;font-size:9px;font-weight:400;text-transform:uppercase;letter-spacing:.26em;color:var(--historical);font-style:italic}
-  .news-fab-item .fab-date{font-family:'Playfair Display',serif;font-size:9px;color:#888;letter-spacing:.2em;text-transform:uppercase;margin-top:3px}
+  .news-fab-item .fab-source{font-family:'Playfair Display',serif;font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.26em;color:var(--historical);font-style:italic}
+  .news-fab-item .fab-date{font-family:'Playfair Display',serif;font-size:11px;color:#888;letter-spacing:.2em;text-transform:uppercase;margin-top:3px}
 
   /* NEWS SECTION — editorial */
   .news-section{max-width:1000px;margin:100px auto 40px;background:none;border:none;border-top:1px solid #2a2a2a;border-radius:0;overflow:visible}
@@ -220,9 +224,9 @@
   .news-thumb{width:100%;height:180px;object-fit:cover;border-radius:0;margin-bottom:18px;background:var(--bg)}
   .news-source{font-family:'Playfair Display',serif;font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.28em;color:var(--historical);margin-bottom:8px;font-style:italic}
   .news-card h4{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:8px;line-height:1.25;color:#2a2a2a;letter-spacing:-.005em}
-  .news-date{font-family:'Playfair Display',serif;font-size:11px;color:#888;margin-bottom:10px;letter-spacing:.22em;text-transform:uppercase}
+  .news-date{font-family:'Playfair Display',serif;font-size:12px;color:#888;margin-bottom:10px;letter-spacing:.22em;text-transform:uppercase}
   .news-excerpt{font-family:'EB Garamond',serif;font-size:.95rem;color:#555;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  .news-attribution{padding:20px 24px;background:#faf8f5;border-top:1px solid #e8e8e8;font-family:'Playfair Display',serif;font-size:10px;color:#666;text-align:center;letter-spacing:.22em;text-transform:uppercase;font-style:italic}
+  .news-attribution{padding:20px 24px;background:#faf8f5;border-top:1px solid #e8e8e8;font-family:'Playfair Display',serif;font-size:11px;color:#666;text-align:center;letter-spacing:.22em;text-transform:uppercase;font-style:italic}
   .news-attribution a{color:#2a2a2a;text-decoration:none;border-bottom:1px solid #2a2a2a}
   .news-attribution a:hover{color:#666;border-bottom-color:#666}
 
@@ -230,13 +234,13 @@
   .what-it-means{max-width:820px;margin:100px auto 60px;background:none;border:none;border-top:1px solid #2a2a2a;border-radius:0;overflow:visible}
   .what-it-means-header{background:none;border-bottom:1px solid #e8e8e8;padding:48px 24px 40px;border-top:none;text-align:center}
   .what-it-means-header h2{font-family:'Playfair Display',serif;font-size:2.6rem;margin-bottom:12px;color:#2a2a2a;font-weight:400;font-style:italic;letter-spacing:-.005em;line-height:1.1}
-  .what-it-means-header p{font-family:'Playfair Display',serif;font-size:10px;color:#666;letter-spacing:.28em;text-transform:uppercase;font-style:italic}
+  .what-it-means-header p{font-family:'Playfair Display',serif;font-size:11px;color:#666;letter-spacing:.28em;text-transform:uppercase;font-style:italic}
   .what-it-means-content{padding:48px 40px;font-family:'EB Garamond',serif;font-size:1.1rem;color:#333;line-height:1.75}
   .what-it-means-content p{margin-bottom:22px}
   .what-it-means-content p:last-child{margin-bottom:0}
   .what-it-means-content p:first-child::first-letter{font-family:'Playfair Display',serif;font-size:3.4rem;font-weight:400;float:left;line-height:.9;padding:6px 12px 0 0;color:#2a2a2a;font-style:italic}
   .scripture-quote{border-left:1px solid #2a2a2a;background:transparent;padding:14px 0 14px 32px;margin:36px auto;font-family:'Playfair Display',serif;font-size:1.3rem;line-height:1.5;color:#2a2a2a;font-style:italic;font-weight:400;max-width:640px;letter-spacing:-.005em}
-  .scripture-ref{display:block;margin-top:12px;font-family:'Playfair Display',serif;font-size:10px;color:#888;font-weight:400;font-style:italic;letter-spacing:.24em;text-transform:uppercase}
+  .scripture-ref{display:block;margin-top:12px;font-family:'Playfair Display',serif;font-size:11px;color:#888;font-weight:400;font-style:italic;letter-spacing:.24em;text-transform:uppercase}
 
   /* I BELIEVE WALL — editorial */
   .believe-section{border-top:1px solid #e8e8e8;padding:56px 40px;text-align:center;background:#faf8f5}
@@ -258,9 +262,9 @@
   .believe-wall{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:28px;border-top:1px solid #e8e8e8;max-width:640px;margin:0 auto}
   .believe-wall:empty{border-top:none;padding-top:0}
   .believe-name{background:#fff;color:#2a2a2a;padding:6px 14px;border-radius:0;font-family:'Playfair Display',serif;font-size:11px;font-weight:400;border:1px solid #e0dad2;display:inline-flex;align-items:center;gap:6px;letter-spacing:.08em}
-  .believe-name .believe-loc{color:#888;font-weight:400;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+  .believe-name .believe-loc{color:#888;font-weight:400;font-size:11px;letter-spacing:.1em;text-transform:uppercase}
   .believe-name .believe-type{font-size:.78rem}
-  .believe-count{font-family:'Playfair Display',serif;font-size:10px;color:#888;margin-bottom:16px;letter-spacing:.28em;text-transform:uppercase;font-style:italic}
+  .believe-count{font-family:'Playfair Display',serif;font-size:11px;color:#888;margin-bottom:16px;letter-spacing:.28em;text-transform:uppercase;font-style:italic}
 
   footer{text-align:center;padding:56px 24px;font-family:'EB Garamond',serif;font-size:.9rem;color:#888;border-top:1px solid #e8e8e8;max-width:820px;margin:0 auto;line-height:1.6;font-style:italic}
 
@@ -273,17 +277,17 @@
     body{font-size:16px}
     .brand-bar{padding:18px 16px 14px}
     .brand-logo{font-size:22px}
-    .brand-kicker{font-size:9px;letter-spacing:.32em}
+    .brand-kicker{font-size:11px;letter-spacing:.32em}
     .filter-bar{gap:18px;padding:14px 16px 10px;overflow-x:auto;flex-wrap:nowrap;justify-content:flex-start;-webkit-overflow-scrolling:touch}
-    .filter-btn{padding:4px 0;font-size:11px;letter-spacing:.2em;flex-shrink:0}
+    .filter-btn{padding:4px 0;font-size:12px;letter-spacing:.2em;flex-shrink:0}
     .legend-bar{gap:14px;padding:8px 16px 12px}
-    .legend-item{font-size:9px;letter-spacing:.18em}
+    .legend-item{font-size:11px;letter-spacing:.18em}
     .legend-dot{width:6px;height:6px}
     .hero{height:auto;min-height:0;max-height:none;padding:32px 0}
-    .hero-kicker{font-size:9px;letter-spacing:.3em;margin-bottom:12px}
+    .hero-kicker{font-size:11px;letter-spacing:.3em;margin-bottom:12px}
     .hero-title{margin-bottom:12px}
     .hero-title .it{font-size:clamp(32px,9.5vw,52px)}
-    .hero-subtitle{font-size:10px;letter-spacing:.24em}
+    .hero-subtitle{font-size:11px;letter-spacing:.24em}
     .main{padding:20px 16px 60px}
     .intro-pill{margin:0 auto 20px}
     .stats-panel{margin-bottom:32px;padding:22px 0}
@@ -296,27 +300,27 @@
     .stat-num{font-size:1.7rem}
     .intro-note{display:none;margin-bottom:40px;font-size:1rem}
     .intro-pill{display:block;max-width:720px;margin:0 auto 40px;text-align:center}
-    .intro-pill summary{display:inline-block;padding:6px 20px;background:none;border:1px solid #2a2a2a;border-radius:0;font-family:'Playfair Display',serif;font-size:10px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:#2a2a2a;cursor:pointer;list-style:none}
+    .intro-pill summary{display:inline-block;padding:6px 20px;background:none;border:1px solid #2a2a2a;border-radius:0;font-family:'Playfair Display',serif;font-size:11px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;color:#2a2a2a;cursor:pointer;list-style:none}
     .intro-pill summary::-webkit-details-marker{display:none}
     .intro-pill summary::after{content:' ▾';font-size:.65rem;margin-left:4px}
     .intro-pill[open] summary::after{content:' ▴'}
     .intro-pill-content{margin-top:16px;padding:18px 20px;background:#faf8f5;border:1px solid #e8e8e8;border-radius:0;font-family:'EB Garamond',serif;font-size:.95rem;color:#555;line-height:1.6;text-align:left;font-style:italic}
     .stats-panel{margin-bottom:60px;padding:32px 0}
     .stats-headline .big-pct{font-size:3.8rem}
-    .stats-headline .big-label{font-size:10px;letter-spacing:.28em;margin-top:14px}
+    .stats-headline .big-label{font-size:11px;letter-spacing:.28em;margin-top:14px}
     .corr-bar-wrap{padding:12px 24px 20px}
-    .corr-bar-labels{font-size:9px;letter-spacing:.16em}
+    .corr-bar-labels{font-size:11px;letter-spacing:.16em}
     .stats-row{gap:24px;padding:20px 16px 0}
     .stat{min-width:70px}
     .stat-num{font-size:2rem}
-    .stat-label{font-size:9px;letter-spacing:.2em}
+    .stat-label{font-size:11px;letter-spacing:.2em}
     .era-section{margin-bottom:60px}
     .era-header{margin-bottom:28px;padding:0 16px}
     .era-header h2{font-size:1.8rem}
-    .era-header .era-dates{font-size:10px;letter-spacing:.2em}
+    .era-header .era-dates{font-size:11px;letter-spacing:.2em}
     .event-row{display:flex;flex-direction:column;gap:0}
     .event-row .placeholder{display:none}
-    .event-date{text-align:left;padding:12px 0 0 0;font-size:9px;letter-spacing:.2em}
+    .event-date{text-align:left;padding:12px 0 0 0;font-size:11px;letter-spacing:.2em}
     .center-line{display:none}
     .event-card{margin:0 0 8px;padding:14px 16px}
     .event-title{font-size:1rem}
@@ -344,7 +348,7 @@
     .believe-form{flex-direction:column}
     .believe-form input{width:100%}
     .believe-toggle{gap:20px}
-    .believe-toggle-btn{font-size:10px;letter-spacing:.22em}
+    .believe-toggle-btn{font-size:11px;letter-spacing:.22em}
     .news-section{margin:60px auto 30px}
     .news-header{padding:32px 20px 24px}
     .news-header h2{font-size:1.8rem}
@@ -352,7 +356,7 @@
     .news-card{border-right:none;padding:24px 20px}
     .news-card:nth-last-child(-n+2){border-bottom:1px solid #e8e8e8}
     .news-card:last-child{border-bottom:none}
-    .news-attribution{padding:16px 20px;font-size:9px;letter-spacing:.2em}
+    .news-attribution{padding:16px 20px;font-size:11px;letter-spacing:.2em}
     .news-fab{bottom:20px;right:20px}
     .news-fab-panel{width:280px;right:-8px}
     .news-fab{bottom:16px;right:16px}
@@ -386,6 +390,28 @@
     <button class="filter-btn" data-filter="document">Documents</button>
   </div>
   <div class="legend-bar">
+    <div class="jump-to">
+      <select id="jump-select" aria-label="Jump to section">
+        <option value="">Jump to…</option>
+        <optgroup label="Eras">
+          <option value="era-flood">The Flood &amp; Tower of Babel</option>
+          <option value="era-patriarchs">Patriarchal Period</option>
+          <option value="era-exodus">Exodus, Conquest &amp; Settlement</option>
+          <option value="era-monarchy">United &amp; Divided Monarchy</option>
+          <option value="era-exile">Exile &amp; Persian Period</option>
+          <option value="era-scrolls">Dead Sea Scrolls &amp; Second Temple</option>
+          <option value="era-jesus">Life of Jesus</option>
+          <option value="era-apostolic">Apostolic Age &amp; Early Church</option>
+        </optgroup>
+        <optgroup label="Sections">
+          <option value="jump-artifact">Key Artifacts</option>
+          <option value="jump-deepdive">Evidence for Jesus</option>
+          <option value="jump-news">Latest News</option>
+          <option value="jump-meaning">What Does This All Mean?</option>
+          <option value="jump-believe">I Believe Wall</option>
+        </optgroup>
+      </select>
+    </div>
     <div class="legend-item"><div class="legend-dot" style="background:var(--biblical)"></div> Biblical</div>
     <div class="legend-item"><div class="legend-dot" style="background:var(--historical)"></div> Historical</div>
     <div class="legend-item"><div class="legend-dot" style="background:var(--align)"></div> Corroborated</div>
@@ -417,7 +443,7 @@
   <div id="timeline"></div>
 
   <!-- ARTIFACT GALLERY -->
-  <div class="artifact-gallery">
+  <div class="artifact-gallery" id="jump-artifact">
     <div class="gallery-header">
       <h2>&#x1F3DB; Key Artifacts &amp; Inscriptions</h2>
       <p>Physical evidence connecting the biblical narrative to the historical record — click to expand</p>
@@ -511,7 +537,7 @@
   </div>
 
   <!-- DEEP DIVE -->
-  <div class="deep-dive">
+  <div class="deep-dive" id="jump-deepdive">
     <div class="deep-dive-header">
       <h2>&#x271D;&#xFE0F; Deep Dive: Evidence for the Death &amp; Resurrection of Jesus</h2>
       <p>Non-Christian sources, archaeological finds, and the earliest Christian creed — click to expand</p>
@@ -680,7 +706,7 @@
   </div>
 
 <!-- NEWS SECTION -->
-<div class="news-section" id="news-section" style="display:none">
+<div class="news-section" id="news-section" style="display:none" data-jump-id="jump-news">
   <div class="news-header">
     <h2>&#x1F4F0; Latest in Biblical Archaeology</h2>
     <p>Recent discoveries and research from the field</p>
@@ -692,7 +718,7 @@
 </div>
 
 <!-- WHAT DOES THIS ALL MEAN -->
-<div class="what-it-means">
+<div class="what-it-means" id="jump-meaning">
   <div class="what-it-means-header">
     <h2>&#x1F4AD; What Does This All Mean?</h2>
     <p>The evidence is out there — now it's personal</p>
@@ -751,7 +777,7 @@
 
     <p><strong>What will you do with Jesus?</strong></p>
   </div>
-  <div class="believe-section">
+  <div class="believe-section" id="jump-believe">
     <h3>I Believe</h3>
     <p class="believe-subtitle">If you've made the decision to trust in Jesus, we'd love to know. Add your name to the wall.</p>
     <div class="believe-toggle">
@@ -941,6 +967,7 @@ const typeLabels={alignment:'\u2194 Corroborated',biblical:'\uD83D\uDCD6 Biblica
 DATA.forEach(eraData=>{
   const section=document.createElement('div');
   section.className='era-section';
+  section.id='era-'+eraData.era;
   section.innerHTML=`<div class="era-header">
     <span class="era-icon">${eraData.eraIcon}</span>
     <span class="era-badge" style="color:${eraData.eraColor}">${eraData.era.replace(/-/g,' ')}</span>
@@ -969,6 +996,25 @@ DATA.forEach(eraData=>{
   });
   container.appendChild(section);
 });
+
+// Jump-to-section dropdown
+const jumpSelect = document.getElementById('jump-select');
+if (jumpSelect) {
+  jumpSelect.addEventListener('change', (e)=>{
+    const id = e.target.value;
+    if (!id) return;
+    const target = document.getElementById(id);
+    if (target) {
+      const stickyBottom = document.querySelector('.sticky-bar')?.getBoundingClientRect().bottom || 0;
+      const brandBottom = document.querySelector('.brand-bar')?.getBoundingClientRect().bottom || 0;
+      const offset = Math.max(stickyBottom, brandBottom) + 16;
+      const rect = target.getBoundingClientRect();
+      window.scrollTo({top: rect.top + window.scrollY - offset, behavior:'smooth'});
+    }
+    // Reset dropdown so the same option can be chosen again
+    setTimeout(()=>{ e.target.value = ''; }, 400);
+  });
+}
 
 // Filters — preserve scroll position by anchoring to the era section in view
 document.querySelectorAll('.filter-btn').forEach(btn=>{
