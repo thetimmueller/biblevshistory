@@ -922,9 +922,24 @@ DATA.forEach(eraData=>{
   container.appendChild(section);
 });
 
-// Filters
+// Filters — preserve scroll position by anchoring to the era section in view
 document.querySelectorAll('.filter-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
+    // Find the era section closest to the top of the viewport (the one the user is "on")
+    const stickyOffset = document.querySelector('.sticky-bar')?.getBoundingClientRect().bottom || 0;
+    const eraSections = Array.from(document.querySelectorAll('.era-section'));
+    let anchor = null;
+    let anchorOffset = 0;
+    for (const section of eraSections) {
+      const rect = section.getBoundingClientRect();
+      // Pick the first section whose top is below the sticky bar; fall back to last section above viewport
+      if (rect.bottom > stickyOffset) {
+        anchor = section;
+        anchorOffset = rect.top - stickyOffset;
+        break;
+      }
+    }
+
     document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
     const f=btn.dataset.filter;
@@ -932,6 +947,14 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
       if(f==='all')row.classList.remove('hidden');
       else row.classList.toggle('hidden',row.dataset.type!==f);
     });
+
+    // After the DOM has updated, scroll the same anchor section back to its prior position
+    if (anchor) {
+      requestAnimationFrame(()=>{
+        const newTop = anchor.getBoundingClientRect().top;
+        window.scrollBy({top: newTop - stickyOffset - anchorOffset, behavior:'instant'});
+      });
+    }
   });
 });
 
