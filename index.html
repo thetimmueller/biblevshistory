@@ -53,13 +53,146 @@
     --align:#5B7A3A;--align-light:#EDF5E4;
     --document:#8A5BA0;--document-light:#F0E8F5;
   }
-  body{font-family:'EB Garamond','Georgia',serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:17px}
+  body{font-family:'EB Garamond','Georgia',serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:17px;transition:background-color .3s,color .3s}
   a{color:var(--ink)}
   .mono{font-family:'IBM Plex Mono',monospace;letter-spacing:.15em;text-transform:uppercase;font-size:11px;font-weight:500;color:var(--text-muted)}
   .serif-display{font-family:'Playfair Display',serif}
 
+  /* ===== DARK MODE ===== */
+  body.dark{
+    --ink:#e8e3d4;
+    --ink-soft:#b8b2a0;
+    --gold:#d4a857;
+    --gold-soft:#e6c374;
+    --bg:#14171a;
+    --bg-cream:#1c1f22;
+    --bg-dark:#0e1012;
+    --border:#3a3d3a;
+    --border-soft:#2a2d2a;
+    --rule:#6a6d6a;
+    --text:#e8e3d4;
+    --text-muted:#9a9484;
+    --biblical-light:#2a221c;
+    --historical-light:#1c2832;
+    --align-light:#1f2818;
+    --document-light:#26202e;
+  }
+  body.dark .brand-bar{background:#1c1f22;border-bottom-color:#2a2d2a}
+  body.dark .brand-kicker{color:#7a7468}
+  body.dark .brand-logo{color:#e8e3d4}
+  body.dark .brand-logo .brand-x{color:#9a9484}
+  body.dark .sticky-bar{background:#1c1f22;border-bottom-color:#2a2d2a}
+  body.dark .filter-btn{color:#e8e3d4}
+  body.dark .filter-btn:hover{color:#9a9484}
+  body.dark .filter-btn.active::after{background:#e8e3d4}
+  body.dark .legend-bar{background:#14171a;border-top-color:#2a2d2a}
+  body.dark .legend-item{color:#9a9484}
+  body.dark .jump-to select{color:#e8e3d4;border-color:#e8e3d4;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'><path d='M1 3l4 4 4-4' stroke='%23e8e3d4' stroke-width='1' fill='none'/></svg>")}
+  body.dark .jump-to select:hover{background-color:#2a2d2a}
+  body.dark .jump-to select option{background:#1c1f22;color:#e8e3d4}
+  body.dark .stats-panel{border-top-color:#e8e3d4;border-bottom-color:#e8e3d4}
+  body.dark .stats-headline .big-pct,body.dark .stats-headline .big-label{color:#e8e3d4}
+  body.dark .stats-headline .big-sub{color:#9a9484}
+  body.dark .corr-bar{background:#2a2d2a}
+  body.dark .corr-bar .bar-green{background:#d4a857}
+  body.dark .corr-bar .bar-brown{background:#4a4d4a}
+  body.dark .corr-bar-labels{color:#9a9484}
+  body.dark .stats-row{border-top-color:#2a2d2a}
+  body.dark .stat-num{color:#e8e3d4}
+  body.dark .stat-label{color:#9a9484}
+  body.dark .era-header h2{color:#e8e3d4}
+  body.dark .era-header::before{background:#7a7468}
+  body.dark .era-header .era-dates{color:#9a9484}
+  body.dark .event-date{color:#9a9484}
+  body.dark .event-title{color:#e8e3d4}
+  body.dark .event-desc{color:#b8b2a0}
+  body.dark .event-card .source-note{color:#7a7468;border-top-color:rgba(255,255,255,.08)}
+  body.dark .center-line::after{background:#3a3d3a}
+  body.dark .center-dot{border-color:#14171a;box-shadow:0 0 0 1px #3a3d3a}
+  body.dark .intro-note{color:#9a9484}
+  body.dark .intro-note strong{color:#e8e3d4}
+  body.dark .intro-pill summary{background:none;border-color:#e8e3d4;color:#e8e3d4}
+  body.dark .intro-pill-content{background:#1c1f22;border-color:#2a2d2a;color:#9a9484}
+  body.dark .artifact-gallery{border-top-color:#e8e3d4}
+  body.dark .gallery-header h2{color:#e8e3d4}
+  body.dark .gallery-header p{color:#9a9484}
+  body.dark .gallery-grid{border-top-color:#2a2d2a}
+  body.dark .artifact-card{background:#1c1f22;border-color:#2a2d2a}
+  body.dark .artifact-card:hover{background:#22262a}
+  body.dark .artifact-card h4{color:#e8e3d4}
+  body.dark .artifact-card .artifact-date{color:#7a7468}
+  body.dark .artifact-card p{color:#9a9484}
+  body.dark .deep-dive{border-top-color:#e8e3d4}
+  body.dark .deep-dive-header h2{color:#e8e3d4}
+  body.dark .deep-dive-header p{color:#9a9484}
+  body.dark .evidence-grid{border-top-color:#2a2d2a}
+  body.dark .evidence-col h3{color:#e8e3d4;border-bottom-color:#2a2d2a}
+  body.dark .evidence-col:first-child{border-right-color:#2a2d2a}
+  body.dark .evidence-item{background:#1c1f22;border-left-color:#2a2d2a}
+  body.dark .evidence-item:hover{background:#22262a;border-left-color:#d4a857}
+  body.dark .evidence-item .ev-title{color:#e8e3d4}
+  body.dark .evidence-item .ev-date{color:#7a7468}
+  body.dark .evidence-item .ev-detail{color:#9a9484}
+  body.dark .summary-box{background:#1c1f22;border-top-color:#2a2d2a;color:#9a9484}
+  body.dark .summary-box strong{color:#e8e3d4}
+  body.dark .news-section{border-top-color:#e8e3d4}
+  body.dark .news-header h2{color:#e8e3d4}
+  body.dark .news-header p{color:#9a9484}
+  body.dark .news-grid{border-top-color:#2a2d2a}
+  body.dark .news-card{background:#1c1f22;border-color:#2a2d2a}
+  body.dark .news-card:hover{background:#22262a}
+  body.dark .news-card h4{color:#e8e3d4}
+  body.dark .news-source{color:#d4a857}
+  body.dark .news-date{color:#7a7468}
+  body.dark .news-excerpt{color:#9a9484}
+  body.dark .news-attribution{background:#1c1f22;border-top-color:#2a2d2a;color:#9a9484}
+  body.dark .news-attribution a{color:#e8e3d4;border-bottom-color:#e8e3d4}
+  body.dark .news-fab-btn{background:#e8e3d4;color:#14171a;border-color:#e8e3d4}
+  body.dark .news-fab-btn:hover{background:#fff}
+  body.dark .news-fab-panel{background:#1c1f22;border-color:#2a2d2a}
+  body.dark .news-fab-panel-header{color:#e8e3d4;border-bottom-color:#2a2d2a}
+  body.dark .news-fab-item{border-bottom-color:#2a2d2a}
+  body.dark .news-fab-item:hover{background:#22262a}
+  body.dark .news-fab-item h5{color:#e8e3d4}
+  body.dark .news-fab-item .fab-source{color:#d4a857}
+  body.dark .news-fab-item .fab-date{color:#7a7468}
+  body.dark .what-it-means{border-top-color:#e8e3d4}
+  body.dark .what-it-means-header{border-bottom-color:#2a2d2a}
+  body.dark .what-it-means-header h2{color:#e8e3d4}
+  body.dark .what-it-means-header p{color:#9a9484}
+  body.dark .what-it-means-content{color:#c8c2b4}
+  body.dark .what-it-means-content p:first-child::first-letter{color:#e8e3d4}
+  body.dark .scripture-quote{color:#e8e3d4;border-left-color:#d4a857}
+  body.dark .scripture-ref{color:#9a9484}
+  body.dark .believe-section{background:#1c1f22;border-top-color:#2a2d2a}
+  body.dark .believe-section h3{color:#e8e3d4}
+  body.dark .believe-section .believe-subtitle{color:#9a9484}
+  body.dark .believe-form input{color:#e8e3d4;border-bottom-color:#7a7468;background:transparent}
+  body.dark .believe-form input:focus{border-bottom-color:#e8e3d4}
+  body.dark .believe-form input::placeholder{color:#7a7468}
+  body.dark .believe-toggle-btn{color:#7a7468}
+  body.dark .believe-toggle-btn.active{color:#e8e3d4}
+  body.dark .believe-toggle-btn.active::after{background:#e8e3d4}
+  body.dark .believe-toggle-btn:hover:not(.active){color:#9a9484}
+  body.dark .believe-btn{background:#e8e3d4;color:#14171a;border-color:#e8e3d4}
+  body.dark .believe-btn:hover{background:#14171a;color:#e8e3d4}
+  body.dark .believe-wall{border-top-color:#2a2d2a}
+  body.dark .believe-name{background:#22262a;color:#e8e3d4;border-color:#3a3d3a}
+  body.dark .believe-name .believe-loc{color:#7a7468}
+  body.dark .believe-count{color:#7a7468}
+  body.dark footer{color:#7a7468;border-top-color:#2a2d2a}
+
+  /* THEME TOGGLE */
+  .theme-toggle{position:absolute;right:24px;top:50%;transform:translateY(-50%);background:none;border:1px solid #2a2a2a;color:#2a2a2a;width:34px;height:34px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .3s;padding:0}
+  .theme-toggle:hover{background:#2a2a2a;color:#fff}
+  body.dark .theme-toggle{border-color:#e8e3d4;color:#e8e3d4}
+  body.dark .theme-toggle:hover{background:#e8e3d4;color:#14171a}
+  .theme-toggle .icon-sun{display:none}
+  body.dark .theme-toggle .icon-sun{display:inline}
+  body.dark .theme-toggle .icon-moon{display:none}
+
   /* BRAND BAR */
-  .brand-bar{background:#fff;padding:22px 24px 18px;text-align:center;border-bottom:1px solid #e8e8e8}
+  .brand-bar{background:#fff;padding:22px 24px 18px;text-align:center;border-bottom:1px solid #e8e8e8;position:relative}
   .brand-mark{display:inline-block}
   .brand-kicker{font-family:'Playfair Display',serif;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:#999;font-style:italic;margin-bottom:-4px;font-weight:400}
   .brand-logo{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;letter-spacing:.02em;color:#2a2a2a;line-height:1}
@@ -379,6 +512,10 @@
     <div class="brand-kicker">The Record of</div>
     <div class="brand-logo">Bible <span class="brand-x">&times;</span> History</div>
   </div>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <span class="icon-moon">&#x263D;</span>
+    <span class="icon-sun">&#x2600;</span>
+  </button>
 </header>
 
 <nav class="sticky-bar">
@@ -1008,6 +1145,22 @@ DATA.forEach(eraData=>{
   });
   container.appendChild(section);
 });
+
+// Dark mode toggle — persists in localStorage, respects system preference on first visit
+(function(){
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (saved === 'dark' || (!saved && prefersDark)) {
+    document.body.classList.add('dark');
+  }
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', ()=>{
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    });
+  }
+})();
 
 // Jump-to-section dropdown
 const jumpSelect = document.getElementById('jump-select');
