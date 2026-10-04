@@ -850,7 +850,7 @@
   </div>
   <div class="news-grid" id="news-grid"></div>
   <div class="news-attribution">
-    Powered by <a href="https://biblearchaeologyreport.com/" target="_blank" rel="noopener">Bible Archaeology Report</a> &amp; <a href="https://www.biblicalarchaeology.org/" target="_blank" rel="noopener">Biblical Archaeology Society</a>
+    Sourced from <a href="https://biblearchaeologyreport.com/" target="_blank" rel="noopener">Bible Archaeology Report</a>, <a href="https://www.biblicalarchaeology.org/" target="_blank" rel="noopener">Biblical Archaeology Society</a> &amp; <a href="https://news.google.com/" target="_blank" rel="noopener">Google News</a>
   </div>
 </div>
 
@@ -1348,41 +1348,16 @@ if (localStorage.getItem('believed')) {
 
 // === NEWS: FETCH + POPULATE TICKER, FAB, AND SECTION ===
 (async function fetchNews() {
-  const feeds = [
-    {url:'https://biblearchaeologyreport.com/feed/', source:'Bible Archaeology Report'},
-    {url:'https://www.biblicalarchaeology.org/feed/', source:'Biblical Archaeology Society'}
-  ];
-  const proxy = 'https://api.allorigins.win/get?url=';
-  const articles = [];
+  // news.json is refreshed every 3 hours by .github/workflows/news.yml
+  const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let articles = [];
   try {
-    await Promise.allSettled(
-      feeds.map(async f => {
-        const resp = await fetch(proxy + encodeURIComponent(f.url));
-        const data = await resp.json();
-        let xml = data.contents;
-        if (xml.startsWith('data:')) {
-          const bytes = Uint8Array.from(atob(xml.split('base64,')[1]), c => c.charCodeAt(0));
-          xml = new TextDecoder('utf-8').decode(bytes);
-        }
-        const doc = new DOMParser().parseFromString(xml, 'text/xml');
-        doc.querySelectorAll('item').forEach((item, i) => {
-          if (i >= 3) return;
-          const title = item.querySelector('title')?.textContent || '';
-          const link = item.querySelector('link')?.textContent || '';
-          const pubDate = item.querySelector('pubDate')?.textContent || '';
-          const desc = item.querySelector('description')?.textContent || '';
-          const mediaTh = item.getElementsByTagName('media:thumbnail')[0]?.getAttribute('url');
-          const mediaCo = item.getElementsByTagName('media:content')[0]?.getAttribute('url');
-          const encoded = item.getElementsByTagName('content:encoded')[0]?.textContent || desc;
-          const imgMatch = encoded.match(/<img[^>]+src=["']([^"']+)["']/);
-          const thumb = mediaTh || mediaCo || (imgMatch ? imgMatch[1] : '');
-          const tmp = document.createElement('div');
-          tmp.innerHTML = desc;
-          const excerpt = tmp.textContent.trim().slice(0, 160) + '…';
-          articles.push({title, link, pubDate: new Date(pubDate), excerpt, thumb, source: f.source});
-        });
-      })
-    );
+    const resp = await fetch('news.json', {cache:'no-cache'});
+    const data = await resp.json();
+    articles = data.articles.map(a => ({
+      title: esc(a.title), link: esc(a.link), excerpt: esc(a.excerpt),
+      thumb: esc(a.thumb), source: esc(a.source), pubDate: new Date(a.pubDate)
+    }));
     if (articles.length === 0) return;
     articles.sort((a, b) => b.pubDate - a.pubDate);
 
@@ -1443,5 +1418,9 @@ if (localStorage.getItem('believed')) {
   </div>
   <button class="news-fab-btn" id="news-fab-btn" title="Latest archaeology news">&#x1F4F0;<span class="news-fab-badge" id="news-fab-badge"></span></button>
 </div>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "90669f31d64143309980aa363c479322"}'></script>
+<!-- End Cloudflare Web Analytics -->
 </body>
 </html>
