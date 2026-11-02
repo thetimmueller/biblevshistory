@@ -344,6 +344,13 @@
   .news-fab-item .fab-source{font-family:'Playfair Display',serif;font-size:11px;font-weight:400;text-transform:uppercase;letter-spacing:.26em;color:var(--historical);font-style:italic}
   .news-fab-item .fab-date{font-family:'Playfair Display',serif;font-size:11px;color:#888;letter-spacing:.2em;text-transform:uppercase;margin-top:3px}
 
+  /* I BELIEVE FLOATING BUTTON */
+  .believe-fab{position:fixed;bottom:32px;left:32px;z-index:199;height:56px;padding:0 26px;background:#1a1a1a;color:#f7f2e7;border:1px solid #1a1a1a;border-radius:28px;font-family:'Playfair Display',serif;font-size:12px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.18);transition:transform .25s,background .25s,opacity .25s,visibility .25s}
+  .believe-fab:hover{transform:scale(1.04);background:#2a2a2a}
+  .believe-fab.is-hidden{opacity:0;visibility:hidden;transform:translateY(8px)}
+  body.dark .believe-fab{background:#e8e3d4;color:#14171a;border-color:#e8e3d4}
+  body.dark .believe-fab:hover{background:#fff}
+
   /* NEWS SECTION — editorial */
   .news-section{max-width:1000px;margin:100px auto 40px;background:none;border:none;border-top:1px solid #2a2a2a;border-radius:0;overflow:visible}
   .news-header{background:none;color:#2a2a2a;padding:48px 24px 36px;text-align:center}
@@ -493,6 +500,7 @@
     .news-fab{bottom:20px;right:20px}
     .news-fab-panel{width:280px;right:-8px}
     .news-fab{bottom:16px;right:16px}
+    .believe-fab{bottom:16px;left:16px;height:56px;padding:0 20px;font-size:11px;letter-spacing:.2em}
     .news-ticker{font-size:.72rem}
   }
 </style>
@@ -543,7 +551,7 @@
         <optgroup label="Sections">
           <option value="jump-artifact">Key Artifacts</option>
           <option value="jump-deepdive">Evidence for Jesus</option>
-          <option value="jump-news">Latest News</option>
+          <option value="news-section">Latest News</option>
           <option value="jump-meaning">What Does This All Mean?</option>
           <option value="jump-believe">I Believe Wall</option>
         </optgroup>
@@ -843,7 +851,7 @@
   </div>
 
 <!-- NEWS SECTION -->
-<div class="news-section" id="news-section" style="display:none" data-jump-id="jump-news">
+<div class="news-section" id="news-section" style="display:none">
   <div class="news-header">
     <h2>&#x1F4F0; Latest in Biblical Archaeology</h2>
     <p>Recent discoveries and research from the field</p>
@@ -936,6 +944,9 @@
 <footer>
   Sources include Kitchen, Finkelstein, Mazar, Josephus, Tacitus, Meier, Habermas, Brown, Hemer, VanderKam, and others. All dates follow mainstream scholarly consensus where available. Where biblical and scholarly chronologies diverge, both perspectives are noted. Click individual events for source citations.
 </footer>
+
+<!-- I BELIEVE FLOATING BUTTON -->
+<button class="believe-fab" id="believe-fab">I Believe</button>
 
 <script>
 const DATA = [
@@ -1162,24 +1173,37 @@ DATA.forEach(eraData=>{
   }
 })();
 
+// Scroll a section to just below the sticky nav
+function scrollToSection(id) {
+  const target = document.getElementById(id);
+  if (!target) return;
+  const stickyHeight = document.querySelector('.sticky-bar')?.offsetHeight || 0;
+  const top = target.getBoundingClientRect().top + window.scrollY - stickyHeight - 16;
+  window.scrollTo({top, behavior:'smooth'});
+}
+
 // Jump-to-section dropdown
 const jumpSelect = document.getElementById('jump-select');
 if (jumpSelect) {
   jumpSelect.addEventListener('change', (e)=>{
-    const id = e.target.value;
-    if (!id) return;
-    const target = document.getElementById(id);
-    if (target) {
-      const stickyBottom = document.querySelector('.sticky-bar')?.getBoundingClientRect().bottom || 0;
-      const brandBottom = document.querySelector('.brand-bar')?.getBoundingClientRect().bottom || 0;
-      const offset = Math.max(stickyBottom, brandBottom) + 16;
-      const rect = target.getBoundingClientRect();
-      window.scrollTo({top: rect.top + window.scrollY - offset, behavior:'smooth'});
-    }
+    if (!e.target.value) return;
+    scrollToSection(e.target.value);
     // Reset dropdown so the same option can be chosen again
     setTimeout(()=>{ e.target.value = ''; }, 400);
   });
 }
+
+// Floating "I Believe" button — hidden while the wall is on screen or once signed
+const believeFab = document.getElementById('believe-fab');
+let believeSectionVisible = false;
+function updateBelieveFab() {
+  believeFab.classList.toggle('is-hidden', believeSectionVisible || !!localStorage.getItem('believed'));
+}
+believeFab.addEventListener('click', ()=>scrollToSection('jump-believe'));
+new IntersectionObserver(([entry])=>{
+  believeSectionVisible = entry.isIntersecting;
+  updateBelieveFab();
+}).observe(document.getElementById('jump-believe'));
 
 // Filters — preserve scroll position by anchoring to the era section in view
 document.querySelectorAll('.filter-btn').forEach(btn=>{
@@ -1324,6 +1348,7 @@ function submitBelief() {
     locInput.value = '';
     btn.disabled = false;
     localStorage.setItem('believed', 'true');
+    updateBelieveFab();
   }).catch(() => {
     msg.style.display = 'block';
     msg.textContent = 'Something went wrong — please try again.';
