@@ -1,6 +1,22 @@
 {
-  "updated": "2026-11-19T11:41:22.771Z",
+  "updated": "2026-11-19T20:39:08.345Z",
   "articles": [
+    {
+      "title": "Who Is Balaam Son of Beor? Part One",
+      "link": "https://www.biblicalarchaeology.org/daily/biblical-topics/hebrew-bible/balaam-part-one/",
+      "pubDate": "2026-11-19T12:00:57.000Z",
+      "excerpt": "Balaam son of Beor is one of the most enigmatic figures in the Hebrew Bible, and one of the earliest to be referenced outside the […] The post Who Is Balaam Son…",
+      "thumb": "https://www.biblicalarchaeology.org/wp-content/uploads/2021/08/Fall21-Balaam-1-300x300.jpg",
+      "source": "Biblical Archaeology Society"
+    },
+    {
+      "title": "Who Is the Queen of Sheba in the Bible?",
+      "link": "https://www.biblicalarchaeology.org/daily/ancient-cultures/ancient-near-eastern-world/who-is-the-queen-of-sheba-in-the-bible/",
+      "pubDate": "2026-11-19T12:00:29.000Z",
+      "excerpt": "The meeting of King Solomon and the Queen of Sheba is described in the Bible. Bringing exquisite gifts, the Queen of Sheba came from an exotic land—but where ex…",
+      "thumb": "https://www.biblicalarchaeology.org/wp-content/uploads/2016/08/queen-of-sheba.jpg",
+      "source": "Biblical Archaeology Society"
+    },
     {
       "title": "From Noah’s Ark to Oak Island: In 1976, We Named the 7 Great Quests of Man. Bigfoot Still Hasn’t Called Back",
       "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9faGhkOW1HMzF1OHJucWRGUzVON2xqbEVtaFZ5VWR0QXI3bFlxY2pFTFpBbkExOXpTUlFrRDZlWkY0UlpuZllVVHhkeGdhNFhsZlloaHlpSHBCdG82bG85MzhqVm1TNUhLb01WeDE3aXhIb0hnOXRsV2Q1ck1SQQ?oc=5",
@@ -20,7 +36,7 @@
     {
       "title": "Noah’s Ark researchers find ancient wood fragments near Mount Ararat in Turkey",
       "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNbXpZenEza0JvenV6U2V3QktBNmhWMW9mQmo4MXFtRF8zUDhmVFN2MnRiRXcyNHJKaDdGbkxlbTRfQWRUOGNkbDFSRDdILXdzX1oxRTNYdXRDM19kbUQwbjdtNW5NckQ1MXA2YkJLaDNqOTFLREJlaFRlUmp4WnNib1NPR3NudDBDTkRsWHppNzBxR2lTaW56cFVfdkpIWXRKclZ3dWtn?oc=5",
-      "pubDate": "2026-11-18T14:20:50.000Z",
+      "pubDate": "2026-11-18T14:10:26.000Z",
       "excerpt": "",
       "thumb": "",
       "source": "All Israel News"
@@ -32,14 +48,6 @@
       "excerpt": "",
       "thumb": "",
       "source": "The Christian Index"
-    },
-    {
-      "title": "Akropolis Reed Quintet, Dead Sea Scrolls exhibition, Zine Fest top live events",
-      "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQYzkxa3hqNllvMG5TbVVONHJDVDFkYzJLanAtam02SlBHak9zbVdnN3ZZbWRrOHgzdThETEJZMXVpMlRuT1hrUTBzZWwxZkc5a1kwRXd1cXN0MGlEdjZmZGVEaTJjSUdRXy1majAzRHZlLUhUOWJZNXhZNkdCWlh2eWVxZ2taT0FzMFBEZTZWdjZhR2ZBVVhWajZTT0NDUTlBM0RYWQ?oc=5",
-      "pubDate": "2026-11-18T12:14:47.000Z",
-      "excerpt": "",
-      "thumb": "",
-      "source": "Houston Chronicle"
     },
     {
       "title": "Mesopotamia’s Primeval Waters",
@@ -66,36 +74,28 @@
       "source": "The Jerusalem Post"
     },
     {
-      "title": "When Did Monotheism Emerge in Ancient Israel?",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-topics/bible-interpretation/when-did-monotheism-emerge-in-ancient-israel/",
-      "pubDate": "2026-11-17T12:00:38.000Z",
-      "excerpt": "When did the Israelites first begin to worship YHWH, refusing to worship or even recognize the existence of other deities? Was monotheism part of Israelite […] …",
-      "thumb": "https://www.biblicalarchaeology.org/wp-content/uploads/2021/05/Arad-shrine-300x225.jpg",
-      "source": "Biblical Archaeology Society"
-    },
-    {
-      "title": "Where Noah Landed",
-      "link": "https://www.biblicalarchaeology.org/daily/biblical-sites-places/biblical-archaeology-sites/where-noah-landed/",
-      "pubDate": "2026-11-17T12:00:05.000Z",
-      "excerpt": "Still another group is looking for Mt. Ararat, where the Bible says Noah landed after the flood. This group is looking to confirm the tradition that nearby Mt. …",
-      "thumb": "https://www.biblicalarchaeology.org/wp-content/uploads/where-noah-landed-01-254x300.jpg",
-      "source": "Biblical Archaeology Society"
-    },
-    {
-      "title": "Charred wood pulled from Turkey dig sparks Noah’s Ark debate | Unreported",
-      "link": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQYURZS0NETHFrbHpGTmxGWS1KUWZkTHY5cW5jQU1TN0dUYV84eG02d0hrVWNxNUtvem1sZER1QlRnX1FLY0Z4VGdtREVSeXF6bWdOSGlPeEplMUs1ZHhpR1BSNGtlTHZDbXVWS2NMbnBFWDlnejRaX2Y4bGlLTmlJcEpkMXpCdDRhQmUwTkZEQnJ2LXRyYU9KVnY1bXlhUEtkVzBJbTB0YTEzWk85RWtGdGl6Y3RfNGV2anBiZElldkFRMDRxMWRnejZFWDXSAdIBQVVfeXFMTmx3RGpJX1J5MEdKNjljYVRmZDRSUTRuX2x6dFBpQlFuV0IyTVl0dzFvZllsdmN5dmxVTTllZWVLd3V6d0JSREJVVDRJMGp6Tm1WTWlRbjdZMGFBZnNieDNwZnhVR2ZSU2pKY1FyTEE5S0Z3OWtuYmpQTnd0eThWZWxBUTlXelJPdVhZSWt5QWhIQ1FwX3REbkExay03cDBUODUzLUlzbUo5ZWk1SF9LeC1BWVRzZVV4OFVIdkI1NUVEbWszcWtfcjU1bnlTM1d0VUdR?oc=5",
-      "pubDate": "2026-11-13T17:19:46.000Z",
-      "excerpt": "",
-      "thumb": "",
-      "source": "NewsNation"
-    },
-    {
       "title": "Top Three Reports in Biblical Archaeology – October 2026",
       "link": "https://biblearchaeologyreport.com/2026/11/13/top-three-reports-in-biblical-archaeology-october-2026/",
       "pubDate": "2026-11-13T13:48:37.000Z",
       "excerpt": "Stories about a secret room in a Pharaoh’s Tomb, a ring, and a cache of Late Bronze Age cuneiform tablets dominated the news wire this past month. Here were the…",
       "thumb": "https://biblearchaeologyreport.com/wp-content/uploads/2026/11/image-3.png",
       "source": "Bible Archaeology Report"
+    },
+    {
+      "title": "Dead Sea Scrolls Exhibition",
+      "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxORGtMdEJJUXpYcGZWR2kwTVZyNEFMOXMwdU1Da3hpdE9KX3pNZnJUTEZoZm9BbGthZjdkWUcxZlJZMEgtT1dxOXJwaVlBdnAzNG94V0pHdkQtbm1hd2p6V09vXzY0eEZnRHE1N1cycFpJdXhoS0tCYWpuSDlXakV1ZA?oc=5",
+      "pubDate": "2026-11-12T08:00:00.000Z",
+      "excerpt": "",
+      "thumb": "",
+      "source": "Jewish Herald-Voice"
+    },
+    {
+      "title": "Noah's Ark site yields first look at charred wood fragments recovered deep below soil",
+      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxONHp4Y2RNd1pmdGtNbzJ0TU8wZGRXc0Z6cVFka3J4eUNKTmJDOE44TXlHREU3YVhPRUJyeE05cEJLQWxlckp6dTFOUW1tX0diMm5HQUViWTlneVJyRnJ6T1ZBeGNDTG9WNnVELVhRdWxFRDc0WFFjeldKTDFXSldGeVMyQ01KSzdHUm9MbWdCRmR5UHNtWkxheTE5bzc1azlzZzg5Vllub1pwS3Z5LTlqRkdn0gG3AUFVX3lxTE1MMEZNVmtSU1RPNWt6RUpiSlNGbmFmQms3MGV2Q3VIUGx2d1BsUnY4emo3Smx5bXZ4Rm5YSDhKVXk0SXdoRFIxbkF4d2VfZGdsLWhrUGg4R3RRUm1KOHNWSTBGdllWTnFLU2Zxa2xQdXRqTjd3dTFBeFdUNDZpWUJXRDhnNEhLeDNnVzRSd3Bjb3hvRmlNOGp6eGd1ZjdQTnBkT3gtcEltcVRBcUNOUk9GRFRfdUFrVQ?oc=5",
+      "pubDate": "2026-11-10T08:00:00.000Z",
+      "excerpt": "",
+      "thumb": "",
+      "source": "Fox News"
     }
   ]
 }
